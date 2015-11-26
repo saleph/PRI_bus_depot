@@ -55,6 +55,7 @@ int remove_element_from_list(List* a_list, void* an_object)
 
 }
 
+/* TODO: taking a comparing function into arguements */
 ListNode *find_in_list_the_node_with_object(List* a_list, void* an_object)
 {
     ListNode *temp_node;
