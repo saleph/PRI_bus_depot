@@ -11,6 +11,7 @@ typedef struct Bus {
     unsigned int line_no;
     char driver_name[64];
     char pesel[12];
+    List memberships; /* list of depots which include the bus */
 } Bus;
 
 Bus *new_bus(char*, char*, char*, char*);

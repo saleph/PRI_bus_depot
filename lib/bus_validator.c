@@ -3,7 +3,7 @@
 
 int is_side_no_valid(char* a_string)
 {
-    if (strlen(a_string)>4) {
+    if (strlen(a_string) > 4) {
         printf("Side no is too long! (max 4 digits)\n");
         return 0;
     }
@@ -17,7 +17,7 @@ int is_side_no_valid(char* a_string)
 
 int is_line_no_valid(char* a_string)
 {
-    if (strlen(a_string)>3) {
+    if (strlen(a_string) > 3) {
         printf("Line no is too long! (max 3 digits)\n");
         return 0;
     }
@@ -33,7 +33,7 @@ int is_driver_name_valid(char* a_string)
 {
     unsigned int i;
 
-    if (strlen(a_string)>63) {
+    if (strlen(a_string) > 63) {
         printf("Name is too long! (max 63 letters)\n");
         return 0;
     }
@@ -73,7 +73,7 @@ int is_driver_name_valid(char* a_string)
 
 int is_pesel_valid(char* a_string)
 {
-    if (strlen(a_string)!=11) {
+    if (strlen(a_string) != 11) {
         printf("PESEL has to be 11-digit long!\n");
         return 0;
     }

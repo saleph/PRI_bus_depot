@@ -7,7 +7,7 @@ Bus *new_bus(char* side_no, char* line_no, char* name, char* pesel)
 
     the_bus = malloc(sizeof (struct Bus));
     if (!the_bus) {
-        printf("MEMORY ALLOCATION ERROR!\n");
+        printf("MEMORY ALLOCATION ERROR! (new bus)\n");
         return NULL;
     }
 
