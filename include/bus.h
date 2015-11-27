@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "bus_validator.h"
+#include "list.h"
 
 typedef struct Bus {
     unsigned int side_no;
