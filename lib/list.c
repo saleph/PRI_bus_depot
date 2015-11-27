@@ -1,7 +1,7 @@
 #include "../include/list.h"
 
 
-int add_new_element_to_list(List* a_list, void* an_object)
+int append_to(List* a_list, void* an_object)
 {
     ListNode *temp_node;
 
@@ -31,42 +31,32 @@ int add_new_element_to_list(List* a_list, void* an_object)
     return 1;
 }
 
-int remove_element_from_list(List* a_list, void* an_object)
+int remove_from(List* a_list, ListNode* a_node)
 {
-    ListNode *the_node;
-    ListNode *temp_node;
+    ListNode *a_node_temp;
 
-    the_node = find_in_list_the_node_with_object(a_list, an_object);
-    if (!temp_node)
+    /* empty list case */
+    if (!a_list->length)
         return 0;
 
-    /* even if the_node is the last element of a_list
-     * its next and prev are NULLs, so everything
-     * still works properly */
-    if (the_node == a_list->tail)
-        a_list->tail = the_node->prev;
+    /* if a_node is a tail */
+    if (a_node == a_list->tail) {
+        a_list->tail = a_node->prev;
+        a_node->prev->next = NULL;
+    }
+    /* if a_node is a head */
+    else if (a_node == a_list->head) {
+        a_list->head = a_node->next;
+        a_node->next->prev = NULL;
+    }
+    /* if a_node is between head and tail */
+    else {
+        a_node_temp = a_node;
+        a_node->next->prev = a_node_temp->prev;
+        a_node->prev->next = a_node_temp->next;
+    }
 
-    if (the_node == a_list->head)
-        a_list->head = the_node->next;
-
-    temp_node = the_node;
-    the_node->next->prev = temp_node->prev;
-    the_node->prev->next = temp_node->next->prev;
-
+    free(a_node);
+    a_list->length--;
+    return 1;
 }
-
-/* TODO: taking a comparing function into arguements */
-ListNode *find_in_list_the_node_with_object(List* a_list, void* an_object)
-{
-    ListNode *temp_node;
-
-    /* find passing an_object in a_list */
-    for (temp_node=a_list->head;
-         temp_node;
-         temp_node=temp_node->next)
-        if (temp_node->object == an_object) return temp_node;
-
-    /* if the object hasn't been found */
-    return NULL;
-}
-

@@ -4,14 +4,14 @@
 #include <stdlib.h>
 
 /* generic, universal, linked List */
-typedef struct {
+typedef struct List {
     unsigned int length;
     void *head;
     void *tail;
 } List;
 
 /* node of the generic List */
-typedef struct {
+typedef struct ListNode {
     void *object;
     struct ListNode *next;
     struct ListNode *prev;
@@ -21,10 +21,12 @@ typedef struct {
  * returns 1 if successful
  * returns 0 if malloc was unsuccessful
  */
-int add_new_element_to_list(List*, void*);
+int append_to(List*, void*);
 
-int remove_element_from_list(List*, void*);
-
-ListNode *find_in_list_the_node_with_object(List*, void*);
+/* removes given ListNode
+ * returns 1 if successful
+ * returns 0 if list is empty
+ */
+int remove_from(List*, ListNode*);
 
 #endif /* LIST_H */
