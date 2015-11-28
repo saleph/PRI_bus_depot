@@ -4,6 +4,7 @@
 #include "buses_management.h"
 #include "depots_management.h"
 
-int assign_a_depot_to(Bus*, Depot*);
+void assign_to(Depot*, Bus*);
+void remove_assignment_from(Depot*, Bus*);
 
 #endif /* MEMBERSHIP_MANAGEMENT_H_INCLUDED */
