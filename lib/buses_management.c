@@ -1,5 +1,7 @@
 #include "../include/buses_management.h"
 
+static List buses;
+
 
 int add_bus(char* side_no, char* line_no, char* name, char* pesel)
 {
@@ -16,6 +18,8 @@ int add_bus(char* side_no, char* line_no, char* name, char* pesel)
 
 int remove_bus(Bus* the_bus)
 {
+    /* removes list of depots' pointers */
+    delete_list(&(the_bus->memberships));
     if(!remove_from(&buses, the_bus)) {
         printf("Removing bus from list failed!\n");
         return 0;

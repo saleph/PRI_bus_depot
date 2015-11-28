@@ -1,5 +1,6 @@
 #include "../include/bus_validator.h"
 
+static List buses;
 
 int is_side_no_valid(char* a_string)
 {

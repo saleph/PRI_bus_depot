@@ -1,5 +1,7 @@
 #include "../include/depots_management.h"
 
+static List depots;
+
 
 int add_depot(char* depot_name)
 {
@@ -16,6 +18,8 @@ int add_depot(char* depot_name)
 
 int remove_depot(Depot* the_depot)
 {
+    /* removes list of buses' pointers */
+    delete_list(&(the_depot->members));
     if (!remove_from(&depots, the_depot)) {
         printf("Removing depot from list failed!\n");
         return 0;

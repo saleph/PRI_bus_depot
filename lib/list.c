@@ -78,3 +78,17 @@ ListNode *find_in(List* a_list, void* an_object)
     /* if the node has not been found */
     return NULL;
 }
+
+void delete_list(List* the_list)
+{
+    ListNode *list_node;
+    ListNode *temp_node;
+
+    list_node = the_list->head;
+    while (list_node) {
+        temp_node = list_node->next;
+        free(list_node);
+        list_node = temp_node;
+    }
+    the_list->head = the_list->tail = NULL;
+}

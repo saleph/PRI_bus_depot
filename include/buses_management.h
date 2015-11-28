@@ -2,15 +2,15 @@
 #define MANAGEMENT_H_INCLUDED
 
 #include "bus.h"
+#include "depot.h"
 #include "list.h"
-
-static List buses;
 
 /* append new bus to the list */
 int add_bus(char*, char*, char*, char*);
 
 /* removes passed bus from the list */
 int remove_bus(Bus*);
+int remove_references(Bus*);
 
 int edit_bus_side_no(Bus*, char*);
 int edit_bus_line_no(Bus*, char*);
