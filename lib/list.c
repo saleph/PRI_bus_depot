@@ -31,12 +31,17 @@ int append_to(List* a_list, void* an_object)
     return 1;
 }
 
-int remove_from(List* a_list, ListNode* a_node)
+int remove_from(List* a_list, void* an_element)
 {
+    ListNode *a_node;
     ListNode *a_node_temp;
 
     /* empty list case */
     if (!a_list->length)
+        return 0;
+
+    a_node = find_in(a_list, an_element);
+    if (!a_node)
         return 0;
 
     /* if a_node is a tail */
@@ -59,4 +64,17 @@ int remove_from(List* a_list, ListNode* a_node)
     free(a_node);
     a_list->length--;
     return 1;
+}
+
+ListNode *find_in(List* a_list, void* an_object)
+{
+    ListNode *list_node;
+    for (list_node=a_list->head;
+         list_node;
+         list_node=list_node->next)
+             if (list_node->object == an_object)
+                return list_node;
+
+    /* if the node has not been found */
+    return NULL;
 }

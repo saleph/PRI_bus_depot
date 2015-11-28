@@ -13,3 +13,12 @@ int add_depot(char* depot_name)
     append_to(&depots, the_depot);
     return 1;
 }
+
+int remove_depot(Depot* the_depot)
+{
+    if (!remove_from(&depots, the_depot)) {
+        printf("Removing depot from list failed!\n");
+        return 0;
+    }
+    return 1;
+}

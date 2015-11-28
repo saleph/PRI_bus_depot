@@ -1,4 +1,4 @@
-#include "../include/management.h"
+#include "../include/buses_management.h"
 
 
 int add_bus(char* side_no, char* line_no, char* name, char* pesel)
@@ -11,5 +11,14 @@ int add_bus(char* side_no, char* line_no, char* name, char* pesel)
         return 0;
 
     append_to(&buses, the_bus);
+    return 1;
+}
+
+int remove_bus(Bus* the_bus)
+{
+    if(!remove_from(&buses, the_bus)) {
+        printf("Removing bus from list failed!\n");
+        return 0;
+    }
     return 1;
 }

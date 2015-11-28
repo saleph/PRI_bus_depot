@@ -27,6 +27,12 @@ int append_to(List*, void*);
  * returns 1 if successful
  * returns 0 if list is empty
  */
-int remove_from(List*, ListNode*);
+int remove_from(List*, void*);
+
+/* returns pointer to ListNode
+ * which  "object" is the same as
+ * passed element
+ */
+ListNode *find_in(List*, void*);
 
 #endif /* LIST_H */
