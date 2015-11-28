@@ -21,10 +21,8 @@ Depot *new_depot(char* a_string)
 
 int set_depot_name(Depot* a_depot, char* name)
 {
-    if (strlen(name) > 63) {
-        printf("Depot name is too long! (max 63 letters)\n");
+    if (!is_depot_name_valid(name))
         return 0;
-    }
 
     strcpy(a_depot->name, name);
     return 1;
