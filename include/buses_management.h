@@ -8,6 +8,8 @@
 /* append new bus to the list */
 int add_bus(char*, char*, char*, char*);
 
+int is_bus_unique(Bus*);
+
 /* removes passed bus from the list */
 int remove_bus(Bus*);
 

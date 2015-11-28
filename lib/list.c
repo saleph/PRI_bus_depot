@@ -92,3 +92,24 @@ void delete_list(List* the_list)
     }
     the_list->head = the_list->tail = NULL;
 }
+
+List *find_occurrences(List* the_list, void* item,
+                       void* (*get)(ListNode*),
+                       int (*cmp)(void*, void*))
+{
+    static List occurrences;
+    ListNode *list_node;
+    void *node_item;
+
+    for (list_node=the_list->head;
+         list_node;
+         list_node=list_node->next)
+         {
+             node_item = (*get)(list_node);
+             /* if the item is the same as
+              * its equivalent in ListNode */
+             if (!((*cmp)(node_item, item)))
+                append_to(&occurrences, list_node);
+         }
+    return occurrences;
+}

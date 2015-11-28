@@ -36,7 +36,14 @@ int remove_from(List*, void*);
  */
 ListNode *find_in(List*, void*);
 
-/* removes the all list */
+/* removes the all nodes from list */
 void delete_list(List*);
+
+/* returns pointer to list with
+ * all occurrences of passed value
+ * in passed list. Requires extracting
+ * function (to get value form ListNode)
+ * and comparing fuction */
+List *find_occurrences(List*, void*, void *(), int ());
 
 #endif /* LIST_H */
