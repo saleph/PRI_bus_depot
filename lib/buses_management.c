@@ -13,16 +13,3 @@ int add_bus(char* side_no, char* line_no, char* name, char* pesel)
     append_to(&buses, the_bus);
     return 1;
 }
-
-int add_depot(char* depot_name)
-{
-    Depot *the_depot;
-    the_depot = new_depot(depot_name);
-
-    /* if setting up new depot failed */
-    if (!the_depot)
-        return 0;
-
-    append_to(&depots, the_depot);
-    return 1;
-}
