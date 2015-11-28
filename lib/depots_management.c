@@ -22,3 +22,10 @@ int remove_depot(Depot* the_depot)
     }
     return 1;
 }
+
+int edit_depot_name(Depot* the_depot, char* depot_name)
+{
+    if (!set_depot_name(the_depot, depot_name))
+        return 0;
+    return 1;
+}

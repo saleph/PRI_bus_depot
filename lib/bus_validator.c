@@ -71,7 +71,7 @@ int is_driver_name_valid(char* a_string)
     return 1;
 }
 
-int is_pesel_valid(char* a_string)
+int is_driver_pesel_valid(char* a_string)
 {
     if (strlen(a_string) != 11) {
         printf("PESEL has to be 11-digit long!\n");

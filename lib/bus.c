@@ -1,7 +1,7 @@
 #include "../include/bus.h"
 
 
-Bus *new_bus(char* side_no, char* line_no, char* name, char* pesel)
+Bus *new_bus(char* side_no, char* line_no, char* name, char* driver_pesel)
 {
     Bus *the_bus;
 
@@ -15,7 +15,7 @@ Bus *new_bus(char* side_no, char* line_no, char* name, char* pesel)
     if(!set_side_no(the_bus, side_no) ||
        !set_line_no(the_bus, line_no) ||
        !set_driver_name(the_bus, name) ||
-       !set_pesel(the_bus, pesel))
+       !set_driver_pesel(the_bus, driver_pesel))
        {
            free(the_bus);
            return NULL;
@@ -50,11 +50,11 @@ int set_driver_name(Bus* a_bus, char* name)
     return 1;
 }
 
-int set_pesel(Bus* a_bus, char* pesel)
+int set_driver_pesel(Bus* a_bus, char* driver_pesel)
 {
-    if (!is_pesel_valid(pesel))
+    if (!is_driver_pesel_valid(driver_pesel))
         return 0;
 
-    strcpy(a_bus->pesel, pesel);
+    strcpy(a_bus->driver_pesel, driver_pesel);
     return 1;
 }

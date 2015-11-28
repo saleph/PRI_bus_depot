@@ -8,7 +8,7 @@
 int is_side_no_valid(char*);
 int is_line_no_valid(char*);
 int is_driver_name_valid(char*);
-int is_pesel_valid(char*);
+int is_driver_pesel_valid(char*);
 int is_number(char*);
 
 #endif /* BUS_VALIDATOR_H_INCLUDED */
