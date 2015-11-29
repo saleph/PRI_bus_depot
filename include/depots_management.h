@@ -4,6 +4,7 @@
 #include "depot.h"
 #include "bus.h"
 #include "list.h"
+#include "sorting.h"
 
 /* append new depot to the list */
 int add_depot(char*);

@@ -94,7 +94,7 @@ void delete_list(List* the_list)
 }
 
 List find_occurrences(List* the_list, void* item,
-                       void* (*get)(ListNode*), int (*cmp)(void*, void*))
+                       void* (*get)(ListNode*), int (*cmp)(const void*, const void*))
 {
     static List occurrences;
     ListNode *list_node;

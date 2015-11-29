@@ -4,6 +4,7 @@
 #include "bus.h"
 #include "depot.h"
 #include "list.h"
+#include "sorting.h"
 
 /* append new bus to the list */
 int add_bus(char*, char*, char*, char*);

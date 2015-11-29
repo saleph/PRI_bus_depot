@@ -20,8 +20,10 @@ int is_bus_unique(Bus* the_bus)
 {
     unsigned int occurrs_no;
     List occurrences;
-    occurrences = find_occurrences(&buses, the_bus->side_no,
-                                   get_side_no(), side_no_cmp());
+    occurrences = find_occurrences(&buses,
+                                   &(the_bus->side_no),
+                                   get_side_no,
+                                   side_no_cmp);
     occurrs_no = occurrences.length;
     delete_list(&occurrences);
     if (occurrs_no) {

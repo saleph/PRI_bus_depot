@@ -7,8 +7,8 @@
 #include "list.h"
 
 typedef struct Bus {
-    unsigned int side_no;
-    unsigned int line_no;
+    int side_no;
+    int line_no;
     char driver_name[64];
     char driver_pesel[12];
     List memberships; /* list of depots which include the bus */

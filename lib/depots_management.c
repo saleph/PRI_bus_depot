@@ -23,8 +23,10 @@ int is_depot_unique(Depot* the_depot)
 {
     unsigned int occurrs_no;
     List occurrences;
-    occurrences = find_occurrences(&depots, the_depot->name,
-                                   get_depot_name(), depot_names_cmp());
+    occurrences = find_occurrences(&depots,
+                                   the_depot->name,
+                                   get_depot_name,
+                                   depots_names_cmp);
     occurrs_no = occurrences.length;
     delete_list(&occurrences);
     if (occurrs_no) {
