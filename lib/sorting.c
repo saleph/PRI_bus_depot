@@ -1,5 +1,12 @@
 #include "../include/sorting.h"
 
+/* buses sorting */
+
+Bus *get_sorted_buses_array(Bus* the_array)
+{
+    qsort(the_array, )
+}
+
 int side_no_cmp(const void* first, const void* second)
 {
     return integers_cmp( *(int*)first, *(int*)second);
@@ -12,6 +19,8 @@ void *get_side_no(ListNode* the_node)
      * and casts it into void* */
     return (void*)(&(((Bus*)(the_node->object))->side_no));
 }
+
+/* depots sorting */
 
 int depots_names_cmp(const void* first, const void* second)
 {

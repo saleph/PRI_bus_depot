@@ -112,3 +112,8 @@ List find_occurrences(List* the_list, void* item,
          }
     return occurrences;
 }
+
+void delete_array(void* arr)
+{
+    free(arr);
+}

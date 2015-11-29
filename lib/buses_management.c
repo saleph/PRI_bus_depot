@@ -71,3 +71,26 @@ int edit_bus_driver_pesel(Bus* the_bus, char* driver_pesel)
         return 0;
     return 1;
 }
+
+Bus *get_the_all_buses_in_array()
+{
+    return get_buses_array_from(&buses);
+}
+
+Bus *get_buses_array_from(List* the_list)
+{
+    ListNode *list_node;
+    Bus *buses_array;
+    unsigned int i, list_size;
+    list_size = the_list->length;
+
+    buses_array = calloc(list_size, sizeof(Bus));
+
+    for (i=0, list_node=the_list->head;
+         i<list_size && list_node;
+         i++, list_node=list_node->next)
+         {
+             buses_array[i] = *(Bus*)(list_node->object);
+         }
+    return buses_array;
+}

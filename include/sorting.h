@@ -2,11 +2,14 @@
 #define SORTING_H_INCLUDED
 
 #include <string.h>
+#include <stdlib.h>
 #include "list.h"
 #include "buses_management.h"
 #include "depots_management.h"
 
 /* buses sorting */
+Bus *get_sorted_buses_array(Bus*);
+
 int side_no_cmp(const void*, const void*);
 void *get_side_no(ListNode*);
 

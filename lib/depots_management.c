@@ -53,3 +53,26 @@ int edit_depot_name(Depot* the_depot, char* depot_name)
         return 0;
     return 1;
 }
+
+Depot *get_the_all_depots_in_array()
+{
+    return get_depots_array_from(&depots);
+}
+
+Depot *get_depots_array_from(List* the_list)
+{
+    ListNode *list_node;
+    Depot *depots_array;
+    unsigned int i, list_size;
+    list_size = the_list->length;
+
+    depots_array = calloc(list_size, sizeof(Depot));
+
+    for (i=0, list_node=the_list->head;
+         i<list_size && list_node;
+         i++, list_node=list_node->next)
+         {
+             depots_array[i] = *(Depot*)(list_node->object);
+         }
+    return depots_array;
+}

@@ -46,4 +46,8 @@ void delete_list(List*);
  * and comparing fuction */
 List find_occurrences(List*, void*, void *(ListNode*), int (const void*, const void*));
 
+/* procedure will be used in sorting and
+ * filtering functions */
+void delete_array(void*);
+
 #endif /* LIST_H */
