@@ -44,6 +44,6 @@ void delete_list(List*);
  * in passed list. Requires extracting
  * function (to get value form ListNode)
  * and comparing fuction */
-List *find_occurrences(List*, void*, void *(), int ());
+List find_occurrences(List*, void*, void *(), int ());
 
 #endif /* LIST_H */

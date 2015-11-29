@@ -13,6 +13,8 @@ typedef struct Depot {
 
 Depot *new_depot(char*);
 
+int is_depot_unique(Depot*);
+
 int set_depot_name(Depot*, char*);
 
 #endif /* DEPOT_H_INCLUDED */

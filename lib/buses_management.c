@@ -16,6 +16,21 @@ int add_bus(char* side_no, char* line_no, char* name, char* pesel)
     return 1;
 }
 
+int is_bus_unique(Bus* the_bus)
+{
+    unsigned int occurrs_no;
+    List occurrences;
+    occurrences = find_occurrences(&buses, the_bus->side_no,
+                                   get_side_no(), side_no_cmp());
+    occurrs_no = occurrences.length;
+    delete_list(&occurrences);
+    if (occurrs_no) {
+        printf("This side no already exist!\n");
+        return 0;
+    }
+    return 1;
+}
+
 int remove_bus(Bus* the_bus)
 {
     /* removes list of depots' pointers */

@@ -93,9 +93,8 @@ void delete_list(List* the_list)
     the_list->head = the_list->tail = NULL;
 }
 
-List *find_occurrences(List* the_list, void* item,
-                       void* (*get)(ListNode*),
-                       int (*cmp)(void*, void*))
+List find_occurrences(List* the_list, void* item,
+                       void* (*get)(ListNode*), int (*cmp)(void*, void*))
 {
     static List occurrences;
     ListNode *list_node;
