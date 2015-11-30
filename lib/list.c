@@ -43,9 +43,15 @@ ListNode *find_place_for_new_node(ListNode* new_node, List* a_list, void* an_obj
         new_node->object = an_object;
         new_node->prev = NULL;
         new_node->next = list_node;
+        list_node->prev = new_node;
+
+        if (a_list->head == a_list->tail) {
+            a_list->tail = a_list->head;
+            a_list->head = new_node;
+            return new_node;
+        }
 
         a_list->head = new_node;
-        list_node->prev = new_node;
         return new_node;
     }
 
@@ -78,6 +84,8 @@ ListNode *find_place_for_new_node(ListNode* new_node, List* a_list, void* an_obj
                     free(new_node);
                     return NULL;
                  }
+                 if (next_val > 0)
+                    continue;
                  new_node->object = an_object;
                  new_node->prev = list_node;
                  new_node->next = next_node;

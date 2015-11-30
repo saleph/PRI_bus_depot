@@ -8,5 +8,6 @@
 
 void create_data();
 void print_data();
+void delete_data();
 
 #endif /* TESTS_H_INCLUDED */
