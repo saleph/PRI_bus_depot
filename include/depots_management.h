@@ -6,6 +6,8 @@
 #include "list.h"
 #include "sorting.h"
 
+extern List depots;
+
 /* append new depot to the list */
 int add_depot(char*);
 

@@ -2,9 +2,10 @@
 
 /* buses sorting */
 
-Bus *get_sorted_buses_array(Bus* the_array)
+int buses_side_no_cmp(const void *first, const void *second)
 {
-    qsort(the_array, )
+    return side_no_cmp((void*)(&(((Bus*)first)->side_no)),
+                       (void*)(&(((Bus*)second)->side_no)));
 }
 
 int side_no_cmp(const void* first, const void* second)
@@ -21,8 +22,13 @@ void *get_side_no(ListNode* the_node)
 }
 
 /* depots sorting */
-
 int depots_names_cmp(const void* first, const void* second)
+{
+    return names_cmp((void*)(((Depot*)first)->name),
+                     (void*)(((Depot*)second)->name));
+}
+
+int names_cmp(const void* first, const void* second)
 {
     return strings_cmp( (char*)first, (char*)second);
 }

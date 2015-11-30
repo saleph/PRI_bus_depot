@@ -22,7 +22,9 @@ typedef struct List {
  * returns 1 if successful
  * returns 0 if malloc was unsuccessful
  */
-int append_to(List*, void*);
+int append_to(List*, void*, int ());
+
+ListNode *find_place_for_new_node(ListNode*, List*, void*, int ());
 
 /* removes given ListNode
  * returns 1 if successful

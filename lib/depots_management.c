@@ -1,6 +1,6 @@
 #include "../include/depots_management.h"
 
-static List depots;
+List depots;
 
 
 int add_depot(char* depot_name)
@@ -15,7 +15,7 @@ int add_depot(char* depot_name)
     if (!is_depot_unique(the_depot))
         return 0;
 
-    append_to(&depots, the_depot);
+    append_to(&depots, the_depot, depots_names_cmp);
     return 1;
 }
 

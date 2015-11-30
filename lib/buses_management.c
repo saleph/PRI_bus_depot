@@ -1,6 +1,6 @@
 #include "../include/buses_management.h"
 
-static List buses;
+List buses;
 
 
 int add_bus(char* side_no, char* line_no, char* name, char* pesel)
@@ -12,7 +12,7 @@ int add_bus(char* side_no, char* line_no, char* name, char* pesel)
     if (!the_bus)
         return 0;
 
-    append_to(&buses, the_bus);
+    append_to(&buses, the_bus, buses_side_no_cmp);
     return 1;
 }
 
