@@ -2,6 +2,7 @@
 #define LIST_H
 
 #include <stdlib.h>
+#include "messages.h"
 
 /* node of the generic List */
 typedef struct ListNode {

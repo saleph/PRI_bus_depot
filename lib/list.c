@@ -6,8 +6,10 @@ int append_to(List* a_list, void* an_object, int (*cmp)(const void*, const void*
     ListNode *temp_node;
 
     temp_node = malloc(sizeof (ListNode));
-    if (!temp_node)
+    if (!temp_node) {
+        msg(MALLOC_ERR);
         return 0;
+    }
 
     /* empty list case */
     if (!a_list->length) {
