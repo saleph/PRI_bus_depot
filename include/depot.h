@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "list.h"
+#include "bus.h"
 #include "depot_validator.h"
 
 typedef struct Depot {
@@ -16,5 +17,7 @@ Depot *new_depot(char*);
 int is_depot_unique(Depot*);
 
 int set_depot_name(Depot*, char*);
+
+void print_depot_info(Depot*);
 
 #endif /* DEPOT_H_INCLUDED */

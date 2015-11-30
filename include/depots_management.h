@@ -11,8 +11,6 @@ extern List depots;
 /* append new depot to the list */
 int add_depot(char*);
 
-int is_depot_unique(Depot*);
-
 /* removed passed depot from the list */
 int remove_depot(Depot*);
 

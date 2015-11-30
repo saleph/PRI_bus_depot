@@ -27,3 +27,15 @@ int set_depot_name(Depot* a_depot, char* name)
     strcpy(a_depot->name, name);
     return 1;
 }
+
+void print_depot_info(Depot* the_depot)
+{
+    int side_no;
+    ListNode *node;
+    printf("Depot: %s Buses inner: ", the_depot->name);
+    for (node=the_depot->members.head; node; node=node->next) {
+        side_no = ((Bus*)(node->object))->side_no;
+        printf("%04d ", side_no);
+    }
+    printf("\n");
+}

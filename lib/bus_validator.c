@@ -28,14 +28,17 @@ int is_line_no_valid(char* a_string)
     return 1;
 }
 
-int is_driver_name_valid(char* a_string)
+int is_driver_name_valid(char* input_string)
 {
     unsigned int i;
+    char a_string[64];
 
-    if (strlen(a_string) > 63) {
+    if (strlen(input_string) > 63) {
         printf("Name is too long! (max 63 letters)\n");
         return 0;
     }
+
+    strcpy(a_string, input_string);
 
     for (i=0; i<strlen(a_string); i++) {
         if (isspace(a_string[i]))

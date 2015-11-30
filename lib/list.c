@@ -33,21 +33,34 @@ int append_to(List* a_list, void* an_object, int (*cmp)(const void*, const void*
 ListNode *find_place_for_new_node(ListNode* new_node, List* a_list, void* an_object, int (*cmp)(void*, void*))
 {
     ListNode *list_node;
-    ListNode *next_node, *prev_node;
-    int ret_val;
+    ListNode *next_node;
+    int curr_val, next_val;
+
+    list_node = a_list->head;
+    curr_val = (*cmp)(an_object, list_node->object);
+    /* if an_object is less than head object */
+    if (curr_val < 0) { /* insert new_node before head */
+        new_node->object = an_object;
+        new_node->prev = NULL;
+        new_node->next = list_node;
+
+        a_list->head = new_node;
+        list_node->prev = new_node;
+        return new_node;
+    }
 
     for (list_node=a_list->head;
          list_node;
          list_node=list_node->next)
          {
+             curr_val = (*cmp)(an_object, list_node->object);
              /* if an_object already exist */
-             ret_val = (*cmp)(an_object, list_node->object);
-             if (!ret_val) {
+             if (!curr_val) {
                 free(new_node);
                 return NULL;
              }
              /* if new object is greater than list_node object */
-             if (ret_val > 0) { /* insert new_node after list_node */
+             if (curr_val > 0) { /* insert new_node after list_node */
                  if (list_node == a_list->tail) {
                     new_node->object = an_object;
                     new_node->prev = list_node;
@@ -59,33 +72,18 @@ ListNode *find_place_for_new_node(ListNode* new_node, List* a_list, void* an_obj
                  }
 
                  next_node = list_node->next;
+                 next_val = (*cmp)(an_object, next_node->object);
+                 /* if next element is equal current */
+                 if (!next_val) {
+                    free(new_node);
+                    return NULL;
+                 }
                  new_node->object = an_object;
                  new_node->prev = list_node;
                  new_node->next = next_node;
 
                  list_node->next = new_node;
                  next_node->prev = new_node;
-                 return new_node;
-             }
-             /* if an_object is less than list_node object */
-             if (ret_val < 0) { /* inserts new_node before list_node */
-                 if (list_node == a_list->head) {
-                    new_node->object = an_object;
-                    new_node->prev = NULL;
-                    new_node->next = list_node;
-
-                    a_list->head = new_node;
-                    list_node->prev = new_node;
-                    return new_node;
-                 }
-
-                 prev_node = list_node->prev;
-                 new_node->object = an_object;
-                 new_node->next = list_node;
-                 new_node->prev = prev_node;
-
-                 list_node->prev = new_node;
-                 prev_node->next = new_node;
                  return new_node;
              }
          }

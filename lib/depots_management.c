@@ -12,27 +12,7 @@ int add_depot(char* depot_name)
     if (!the_depot)
         return 0;
 
-    if (!is_depot_unique(the_depot))
-        return 0;
-
     append_to(&depots, the_depot, depots_names_cmp);
-    return 1;
-}
-
-int is_depot_unique(Depot* the_depot)
-{
-    unsigned int occurrs_no;
-    List occurrences;
-    occurrences = find_occurrences(&depots,
-                                   the_depot->name,
-                                   get_depot_name,
-                                   depots_names_cmp);
-    occurrs_no = occurrences.length;
-    delete_list(&occurrences);
-    if (occurrs_no) {
-        printf("This depot already exist!\n");
-        return 0;
-    }
     return 1;
 }
 

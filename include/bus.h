@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "bus_validator.h"
+#include "depot.h"
 #include "list.h"
 
 typedef struct Bus {
@@ -20,5 +21,7 @@ int set_side_no(Bus*, char*);
 int set_line_no(Bus*, char*);
 int set_driver_name(Bus*, char*);
 int set_driver_pesel(Bus*, char*);
+
+void print_bus_info(Bus*);
 
 #endif /* BUS_H_INCLUDED */
