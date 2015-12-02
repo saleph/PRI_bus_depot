@@ -28,14 +28,20 @@ int set_depot_name(Depot* a_depot, char* name)
     return 1;
 }
 
-void print_depot_info(Depot* the_depot)
+void print_depot_info(void* the_depot_pointer)
 {
-    int side_no;
-    ListNode *node;
+    Depot *the_depot;
+    the_depot = (Depot*)the_depot_pointer;
     printf("Depot: %s Buses inner: ", the_depot->name);
-    for (node=the_depot->members.head; node; node=node->next) {
-        side_no = ((Bus*)(node->object))->side_no;
-        printf("%04d ", side_no);
-    }
+
+    print_all(&(the_depot->members), print_depot_members);
+
     printf("\n");
+}
+
+void print_depot_members(void* the_bus_pointer)
+{
+    Bus *the_bus;
+    the_bus = (Bus*)the_bus_pointer;
+    printf("%04d ", the_bus->side_no);
 }

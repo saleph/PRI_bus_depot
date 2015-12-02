@@ -200,3 +200,12 @@ List find_occurrences(List* the_list, void* item,
          }
     return occurrences;
 }
+
+void print_all(List* the_list, void (*print)(void*))
+{
+    ListNode *list_node;
+    for (list_node=the_list->head;
+         list_node;
+         list_node=list_node->next)
+             (*print)(list_node->object);
+}

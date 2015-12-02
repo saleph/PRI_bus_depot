@@ -22,6 +22,7 @@ int set_line_no(Bus*, char*);
 int set_driver_name(Bus*, char*);
 int set_driver_pesel(Bus*, char*);
 
-void print_bus_info(Bus*);
+void print_bus_info(void*);
+void print_bus_memberships(void*);
 
 #endif /* BUS_H_INCLUDED */

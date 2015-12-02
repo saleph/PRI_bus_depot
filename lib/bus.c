@@ -59,15 +59,21 @@ int set_driver_pesel(Bus* a_bus, char* driver_pesel)
     return 1;
 }
 
-void print_bus_info(Bus* the_bus)
+void print_bus_info(void* the_bus_ptr)
 {
-    char *name;
-    ListNode *node;
+    Bus* the_bus;
+    the_bus = (Bus*)the_bus_ptr;
     printf("Bus: %04d %d %s %s Depots: ", the_bus->side_no,
            the_bus->line_no, the_bus->driver_name, the_bus->driver_pesel);
-    for (node=the_bus->memberships.head; node; node=node->next) {
-        name = ((Depot*)(node->object))->name;
-        printf("%s ", name);
-    }
+
+    print_all(&(the_bus->memberships), print_bus_memberships);
+
     printf("\n");
+}
+
+void print_bus_memberships(void* the_depot_pointer)
+{
+    Depot *the_depot;
+    the_depot = (Depot*)the_depot_pointer;
+    printf("%s ", the_depot->name);
 }
