@@ -6,6 +6,7 @@
 #include "bus_validator.h"
 #include "depot.h"
 #include "list.h"
+#include "messages.h"
 
 typedef struct Bus {
     int side_no;

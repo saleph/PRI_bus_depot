@@ -6,6 +6,7 @@
 #include "list.h"
 #include "buses_management.h"
 #include "depots_management.h"
+#include "messages.h"
 
 /* buses sorting */
 int buses_side_no_cmp(const void*, const void*);

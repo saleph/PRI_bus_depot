@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdio.h>
+#include "messages.h"
 
 int is_depot_name_valid(char*);
 

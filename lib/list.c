@@ -210,7 +210,7 @@ List find_occurrences(List* the_list, void* item,
     return occurrences;
 }
 
-void print_all(List* the_list, void (*print)(void*))
+void do_for_each_in(List* the_list, void (*print)(void*))
 {
     ListNode *list_node;
     for (list_node=the_list->head;

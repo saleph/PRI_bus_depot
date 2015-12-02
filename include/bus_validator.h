@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include <string.h>
 #include "bus.h"
+#include "messages.h"
 
 int is_side_no_valid(char*);
 int is_line_no_valid(char*);

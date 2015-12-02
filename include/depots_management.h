@@ -5,6 +5,7 @@
 #include "bus.h"
 #include "list.h"
 #include "sorting.h"
+#include "messages.h"
 
 extern List depots;
 
@@ -15,8 +16,5 @@ int add_depot(char*);
 int remove_depot(Depot*);
 
 int edit_depot_name(Depot*, char*);
-
-Depot *get_the_all_depots_in_array();
-Depot *get_depots_array_from(List*);
 
 #endif /* DEPOTS_MANAGEMENT_H_INCLUDED */

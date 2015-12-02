@@ -64,6 +64,6 @@ List find_occurrences(List*, void*, void *(ListNode*), int (const void*, const v
 /* print content of the list
  * require printing procedure
  */
-void print_all(List*, void ());
+void do_for_each_in(List*, void ());
 
 #endif /* LIST_H */

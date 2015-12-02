@@ -76,7 +76,7 @@ void print_bus_info(void* the_bus_ptr)
     printf("Bus: %04d %d %s %s Depots: ", the_bus->side_no,
            the_bus->line_no, the_bus->driver_name, the_bus->driver_pesel);
 
-    print_all(&(the_bus->memberships), print_bus_memberships);
+    do_for_each_in(&(the_bus->memberships), print_bus_memberships);
 
     printf("\n");
 }

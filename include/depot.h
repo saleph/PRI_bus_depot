@@ -6,6 +6,7 @@
 #include "list.h"
 #include "bus.h"
 #include "depot_validator.h"
+#include "messages.h"
 
 typedef struct Depot {
     char name[64];

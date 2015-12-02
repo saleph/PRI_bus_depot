@@ -44,7 +44,7 @@ void print_depot_info(void* the_depot_pointer)
     the_depot = (Depot*)the_depot_pointer;
     printf("Depot: %s Buses inner: ", the_depot->name);
 
-    print_all(&(the_depot->members), print_depot_members);
+    do_for_each_in(&(the_depot->members), print_depot_members);
 
     printf("\n");
 }

@@ -19,12 +19,22 @@ int add_bus(char* side_no, char* line_no, char* name, char* pesel)
 int remove_bus(Bus* the_bus)
 {
     /* removes list of depots' pointers */
+    delete_bus_references(the_bus);
     delete_list(&(the_bus->memberships));
     if(!remove_from(&buses, the_bus, del_bus)) {
-        printf("Removing bus from list failed!\n");
+        msg(BUS_REMOVING_FAILED);
         return 0;
     }
     return 1;
+}
+
+/*TODO!!!*/
+void delete_bus_references(Bus* the_bus)
+{
+    /* for each depot in memberships list
+     * delete reference to removing bus
+     */
+    do_for_each_in(&(the_bus->memberships), del_reference_to_bus);
 }
 
 int edit_bus_side_no(Bus* the_bus, char* side_no)
@@ -53,27 +63,4 @@ int edit_bus_driver_pesel(Bus* the_bus, char* driver_pesel)
     if (!set_driver_pesel(the_bus, driver_pesel))
         return 0;
     return 1;
-}
-
-Bus *get_the_all_buses_in_array()
-{
-    return get_buses_array_from(&buses);
-}
-
-Bus *get_buses_array_from(List* the_list)
-{
-    ListNode *list_node;
-    Bus *buses_array;
-    unsigned int i, list_size;
-    list_size = the_list->length;
-
-    buses_array = calloc(list_size, sizeof(Bus));
-
-    for (i=0, list_node=the_list->head;
-         i<list_size && list_node;
-         i++, list_node=list_node->next)
-         {
-             buses_array[i] = *(Bus*)(list_node->object);
-         }
-    return buses_array;
 }

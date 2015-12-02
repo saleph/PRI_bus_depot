@@ -6,6 +6,7 @@
 #include "depot.h"
 #include "depots_management.h"
 #include "membership_management.h"
+#include "messages.h"
 
 void create_data();
 void print_data();
