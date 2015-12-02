@@ -19,6 +19,16 @@ Depot *new_depot(char* a_string)
     return the_depot;
 }
 
+void del_depot(void* the_depot_pointer)
+{
+    Depot *the_depot;
+    the_depot = (Depot*)the_depot_pointer;
+
+    /* deletes nodes only! */
+    delete_list(&(the_depot->members));
+    free(the_depot);
+}
+
 int set_depot_name(Depot* a_depot, char* name)
 {
     if (!is_depot_name_valid(name))

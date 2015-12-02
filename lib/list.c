@@ -101,7 +101,7 @@ ListNode *find_place_for_new_node(ListNode* new_node, List* a_list, void* an_obj
     return NULL;
 }
 
-int remove_from(List* a_list, void* an_element)
+int remove_from(List* a_list, void* an_element, void (*rm)(void*))
 {
     ListNode *a_node;
     ListNode *a_node_temp;
@@ -131,6 +131,7 @@ int remove_from(List* a_list, void* an_element)
         a_node->prev->next = a_node_temp->next;
     }
 
+    (*rm)(a_node);
     free(a_node);
     a_list->length--;
     return 1;
@@ -179,6 +180,14 @@ void delete_list(List* the_list)
         list_node = temp_node;
     }
     the_list->head = the_list->tail = NULL;
+}
+
+void del_node_only(void* the_node_ptr)
+{
+    ListNode *list_node;
+    list_node = (ListNode*)the_node_ptr;
+
+    free(list_node);
 }
 
 List find_occurrences(List* the_list, void* item,

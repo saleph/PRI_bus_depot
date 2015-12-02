@@ -13,6 +13,7 @@ typedef struct Depot {
 } Depot;
 
 Depot *new_depot(char*);
+void del_depot(void* the_depot_pointer);
 
 int set_depot_name(Depot*, char*);
 

@@ -24,6 +24,16 @@ Bus *new_bus(char* side_no, char* line_no, char* name, char* driver_pesel)
     return the_bus;
 }
 
+void del_bus(void* the_bus_pointer)
+{
+    Bus *the_bus;
+    the_bus = (Bus*)the_bus_pointer;
+
+    /* deletes nodes only! */
+    delete_list(&(the_bus->memberships));
+    free(the_bus);
+}
+
 int set_side_no(Bus* a_bus, char* side_no)
 {
     if (!is_side_no_valid(side_no))

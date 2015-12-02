@@ -16,6 +16,7 @@ typedef struct Bus {
 } Bus;
 
 Bus *new_bus(char*, char*, char*, char*);
+void del_bus(void*);
 
 int set_side_no(Bus*, char*);
 int set_line_no(Bus*, char*);

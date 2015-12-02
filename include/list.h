@@ -31,7 +31,7 @@ ListNode *find_place_for_new_node(ListNode*, List*, void*, int ());
  * returns 1 if successful
  * returns 0 if list is empty
  */
-int remove_from(List*, void*);
+int remove_from(List*, void*, void ());
 
 /* returns pointer to ListNode
  * which  "object" is the same as
@@ -44,8 +44,15 @@ ListNode *find_node_in(List*, void*);
  */
 void *find_object_with_item_in(List*, void*, void*(), int ());
 
-/* removes the all nodes from list */
+/* removes the all nodes from list
+ * but WITHOUT touching the object in
+ * the removing node */
 void delete_list(List*);
+
+/* removes node only - WITHOUT
+ * modifying the object in node
+ */
+void del_node_only(void*);
 
 /* returns pointer to list with
  * all occurrences of passed value

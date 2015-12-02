@@ -20,7 +20,7 @@ int remove_bus(Bus* the_bus)
 {
     /* removes list of depots' pointers */
     delete_list(&(the_bus->memberships));
-    if(!remove_from(&buses, the_bus)) {
+    if(!remove_from(&buses, the_bus, del_bus)) {
         printf("Removing bus from list failed!\n");
         return 0;
     }

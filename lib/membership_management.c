@@ -27,8 +27,8 @@ void remove_assignment_from(char* depot_name, int side_no)
         return;
     }
 
-    remove_from(&(the_depot->members), the_bus);
-    remove_from(&(the_bus->memberships), the_depot);
+    remove_from(&(the_depot->members), the_bus, del_node_only);
+    remove_from(&(the_bus->memberships), the_depot, del_node_only);
 }
 
 void move_to(char *depot_name, int side_no)
