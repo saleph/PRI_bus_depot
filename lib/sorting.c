@@ -10,7 +10,7 @@ int buses_side_no_cmp(const void *first, const void *second)
 
 int side_no_cmp(const void* first, const void* second)
 {
-    return integers_cmp( *(int*)first, *(int*)second);
+    return integers_cmp(*(int*)first, *(int*)second);
 }
 
 void *get_side_no(ListNode* the_node)
@@ -30,7 +30,7 @@ int depots_names_cmp(const void* first, const void* second)
 
 int names_cmp(const void* first, const void* second)
 {
-    return strings_cmp( (char*)first, (char*)second);
+    return strings_cmp((char*)first, (char*)second);
 }
 
 void *get_depot_name(ListNode* the_node)

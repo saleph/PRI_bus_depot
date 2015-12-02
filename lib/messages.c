@@ -11,5 +11,8 @@ void msg(enum Message message)
     case ALREADY_EXIST:
         printf("This element already exist!\n");
         break;
+    case NOT_FOUND:
+        printf("This element doesn't exist!\n");
+        break;
     }
 }

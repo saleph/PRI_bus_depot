@@ -37,7 +37,12 @@ int remove_from(List*, void*);
  * which  "object" is the same as
  * passed element
  */
-ListNode *find_in(List*, void*);
+ListNode *find_node_in(List*, void*);
+
+/* returns a pointer to object (eg. struct)
+ * which contains passed item (a key)
+ */
+void *find_object_with_item_in(List*, void*, void*(), int ());
 
 /* removes the all nodes from list */
 void delete_list(List*);

@@ -110,7 +110,7 @@ int remove_from(List* a_list, void* an_element)
     if (!a_list->length)
         return 0;
 
-    a_node = find_in(a_list, an_element);
+    a_node = find_node_in(a_list, an_element);
     if (!a_node)
         return 0;
 
@@ -136,7 +136,7 @@ int remove_from(List* a_list, void* an_element)
     return 1;
 }
 
-ListNode *find_in(List* a_list, void* an_object)
+ListNode *find_node_in(List* a_list, void* an_object)
 {
     ListNode *list_node;
     for (list_node=a_list->head;
@@ -146,6 +146,24 @@ ListNode *find_in(List* a_list, void* an_object)
                 return list_node;
 
     /* if the node has not been found */
+    return NULL;
+}
+
+void *find_object_with_item_in(List* the_list, void* item, void *(*get)(ListNode*), int (*cmp)(void*, void*))
+{
+    ListNode *list_node;
+    void *node_item;
+
+    for (list_node=the_list->head;
+         list_node;
+         list_node=list_node->next)
+         {
+             node_item = (*get)(list_node);
+             /* if the item is the same as
+              * its equivalent in ListNode */
+             if (!((*cmp)(node_item, item)))
+                return node_item;
+         }
     return NULL;
 }
 
@@ -181,9 +199,4 @@ List find_occurrences(List* the_list, void* item,
                 append_to(&occurrences, list_node, cmp);
          }
     return occurrences;
-}
-
-void delete_array(void* arr)
-{
-    free(arr);
 }

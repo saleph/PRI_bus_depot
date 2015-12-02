@@ -5,7 +5,8 @@
 
 enum Message {
     MALLOC_ERR,
-    ALREADY_EXIST
+    ALREADY_EXIST,
+    NOT_FOUND
 };
 
 void msg(enum Message);

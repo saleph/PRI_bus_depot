@@ -39,6 +39,16 @@ void create_data()
     add_depot("c");
     add_depot("c");
     add_depot("c");
+
+    assign_to("a", 7);
+    assign_to("b", 15);
+    assign_to("a", 3);
+    assign_to("a", 2);
+    assign_to("a", 1);
+    assign_to("a", 5);
+    assign_to("c", 3);
+    assign_to("d", 3);
+    assign_to("e", 3);
 }
 
 void print_data()
