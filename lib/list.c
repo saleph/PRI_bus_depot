@@ -191,7 +191,8 @@ void delete_list(List* the_list, void (*rm_content)(void*))
 void del_node_only(void* the_node_ptr)
 {
     /* the node will be freed in remove_from func */
-    ;
+    /* DO NOTHING */
+    the_node_ptr = the_node_ptr;
 }
 
 List find_occurrences(List* the_list, void* item,

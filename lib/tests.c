@@ -69,10 +69,3 @@ void print_data()
     for (node=depots.head; node; node=node->next)
         print_depot_info((Depot*)(node->object));
 }
-
-void delete_data()
-{
-    /*
-    delete_list(&buses, del_bus);
-    delete_list(&depots, del_depot);*/
-}
