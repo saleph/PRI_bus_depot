@@ -1,7 +1,6 @@
 #include "../include/sorting.h"
 
 /* buses sorting */
-
 int buses_side_no_cmp(const void *first, const void *second)
 {
     /* gets two void* to buses and extracts their side_no */
@@ -50,29 +49,6 @@ int drivers_pesels_cmp(const void* first, const void* second)
     return strings_cmp((char*)first, (char*)second);
 }
 
-void *get_side_no(ListNode* the_node)
-{
-    /* casts void *object to Bus* and gets side_no
-     * of the bus and then gets address of int side_no
-     * and casts it into void* */
-    return (void*)(&(((Bus*)(the_node->object))->side_no));
-}
-
-void *get_line_no(ListNode* the_node)
-{
-    return (void*)(&(((Bus*)(the_node->object))->line_no));
-}
-
-void *get_driver_name(ListNode* the_node)
-{
-    return (void*)(((Bus*)(the_node->object))->driver_name);
-}
-
-void *get_driver_pesel(ListNode* the_node)
-{
-    return (void*)(((Bus*)(the_node->object))->driver_pesel);
-}
-
 /* depots sorting */
 int depots_names_cmp(const void* first, const void* second)
 {
@@ -83,13 +59,6 @@ int depots_names_cmp(const void* first, const void* second)
 int names_cmp(const void* first, const void* second)
 {
     return strings_cmp((char*)first, (char*)second);
-}
-
-void *get_depot_name(ListNode* the_node)
-{
-    /* casting void *object to Depot* and getting
-     * name of the depot */
-    return (void*)(((Depot*)(the_node->object))->name);
 }
 
 int integers_cmp(int first, int second)
