@@ -30,7 +30,7 @@ void del_bus(void* the_bus_pointer)
     the_bus = (Bus*)the_bus_pointer;
 
     /* deletes nodes only! */
-    delete_list(&(the_bus->memberships));
+    delete_list(&(the_bus->memberships), del_depot);
     free(the_bus);
 }
 

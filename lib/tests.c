@@ -51,6 +51,15 @@ void create_data()
     assign_to("e", 3);
 }
 
+void change_some_references()
+{
+    Bus *the_bus;
+    int side_no;
+    side_no = 3;
+    the_bus = find_object_with_item_in(&buses, (void*)(&side_no), get_side_no, side_no_cmp);
+    remove_bus(the_bus);
+}
+
 void print_data()
 {
     ListNode *node;
@@ -63,6 +72,7 @@ void print_data()
 
 void delete_data()
 {
-    delete_list(&buses);
-    delete_list(&depots);
+    /*
+    delete_list(&buses, del_bus);
+    delete_list(&depots, del_depot);*/
 }

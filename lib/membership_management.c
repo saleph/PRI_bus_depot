@@ -42,10 +42,3 @@ void move_to(char *depot_name, int side_no)
         return;
     }
 }
-
-void del_reference_to_bus(void* the_depot_pointer)
-{
-    Depot* the_depot;
-    the_depot = (Depot*)the_depot_pointer;
-    remove_assignment_from(the_depot->name, )
-}

@@ -6,6 +6,7 @@
 #include "list.h"
 #include "sorting.h"
 #include "messages.h"
+#include "membership_management.h"
 
 extern List buses;
 

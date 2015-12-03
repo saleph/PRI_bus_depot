@@ -25,7 +25,7 @@ void del_depot(void* the_depot_pointer)
     the_depot = (Depot*)the_depot_pointer;
 
     /* deletes nodes only! */
-    delete_list(&(the_depot->members));
+    delete_list(&(the_depot->members), del_bus);
     free(the_depot);
 }
 

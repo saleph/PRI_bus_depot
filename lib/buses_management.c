@@ -20,7 +20,6 @@ int remove_bus(Bus* the_bus)
 {
     /* removes list of depots' pointers */
     delete_bus_references(the_bus);
-    delete_list(&(the_bus->memberships));
     if(!remove_from(&buses, the_bus, del_bus)) {
         msg(BUS_REMOVING_FAILED);
         return 0;
@@ -32,9 +31,18 @@ int remove_bus(Bus* the_bus)
 void delete_bus_references(Bus* the_bus)
 {
     /* for each depot in memberships list
-     * delete reference to removing bus
+     * delete reference to removed bus
      */
-    do_for_each_in(&(the_bus->memberships), del_reference_to_bus);
+    ListNode *list_node;
+    Depot *the_depot;
+
+    for (list_node=the_bus->memberships.head;
+         list_node;
+         list_node=list_node->next)
+         {
+             the_depot = (Depot*)(list_node->object);
+             remove_assignment_from(the_depot->name, the_bus->side_no);
+         }
 }
 
 int edit_bus_side_no(Bus* the_bus, char* side_no)

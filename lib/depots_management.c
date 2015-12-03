@@ -19,7 +19,7 @@ int add_depot(char* depot_name)
 int remove_depot(Depot* the_depot)
 {
     /* removes list of buses' pointers */
-    delete_list(&(the_depot->members));
+    delete_list(&(the_depot->members), del_bus);
     if (!remove_from(&depots, the_depot, del_depot)) {
         msg(DEPOT_REMOVING_FAILED);
         return 0;

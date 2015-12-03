@@ -114,8 +114,13 @@ int remove_from(List* a_list, void* an_element, void (*rm)(void*))
     if (!a_node)
         return 0;
 
+    /* single element list */
+    if (a_list->length == 1) {
+        a_list->tail = NULL;
+        a_list->head = NULL;
+    }
     /* if a_node is a tail */
-    if (a_node == a_list->tail) {
+    else if (a_node == a_list->tail ) {
         a_list->tail = a_node->prev;
         a_node->prev->next = NULL;
     }
@@ -131,7 +136,7 @@ int remove_from(List* a_list, void* an_element, void (*rm)(void*))
         a_node->prev->next = a_node_temp->next;
     }
 
-    (*rm)(a_node);
+    (*rm)(a_node->object);
     free(a_node);
     a_list->length--;
     return 1;
@@ -168,7 +173,7 @@ void *find_object_with_item_in(List* the_list, void* item, void *(*get)(ListNode
     return NULL;
 }
 
-void delete_list(List* the_list)
+void delete_list(List* the_list, void (*rm_content)(void*))
 {
     ListNode *list_node;
     ListNode *temp_node;
@@ -176,6 +181,7 @@ void delete_list(List* the_list)
     list_node = the_list->head;
     while (list_node) {
         temp_node = list_node->next;
+        (*rm_content)(list_node->object);
         free(list_node);
         list_node = temp_node;
     }
@@ -184,10 +190,8 @@ void delete_list(List* the_list)
 
 void del_node_only(void* the_node_ptr)
 {
-    ListNode *list_node;
-    list_node = (ListNode*)the_node_ptr;
-
-    free(list_node);
+    /* the node will be freed in remove_from func */
+    ;
 }
 
 List find_occurrences(List* the_list, void* item,

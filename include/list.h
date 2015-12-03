@@ -47,7 +47,7 @@ void *find_object_with_item_in(List*, void*, void*(), int ());
 /* removes the all nodes from list
  * but WITHOUT touching the object in
  * the removing node */
-void delete_list(List*);
+void delete_list(List*, void ());
 
 /* removes node only - WITHOUT
  * modifying the object in node

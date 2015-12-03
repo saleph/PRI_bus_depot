@@ -9,6 +9,7 @@
 #include "messages.h"
 
 void create_data();
+void change_some_references();
 void print_data();
 void delete_data();
 
