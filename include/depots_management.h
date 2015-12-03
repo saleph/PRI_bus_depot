@@ -4,7 +4,7 @@
 #include "depot.h"
 #include "bus.h"
 #include "list.h"
-#include "sorting.h"
+#include "comparing.h"
 #include "messages.h"
 
 extern List depots;

@@ -5,6 +5,7 @@
 #include "buses_management.h"
 #include "depots_management.h"
 #include "messages.h"
+#include "extracting.h"
 
 /* filtering returns a pointer to static List variable
  * which contains matching records. Passed list can be

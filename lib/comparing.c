@@ -1,4 +1,4 @@
-#include "../include/sorting.h"
+#include "../include/comparing.h"
 
 /* buses sorting */
 int buses_side_no_cmp(const void *first, const void *second)
