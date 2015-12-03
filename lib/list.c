@@ -5,7 +5,7 @@ int append_to(List* a_list, void* an_object, int (*cmp)(const void*, const void*
 {
     ListNode *temp_node;
 
-    temp_node = malloc(sizeof (ListNode));
+    temp_node = calloc(1, sizeof (ListNode));
     if (!temp_node) {
         msg(MALLOC_ERR);
         return 0;
@@ -116,7 +116,7 @@ int remove_from(List* a_list, void* an_element, void (*rm)(void*))
     if (!a_node)
         return 0;
 
-    /* single element list */
+    /* list with single element */
     if (a_list->length == 1) {
         a_list->tail = NULL;
         a_list->head = NULL;

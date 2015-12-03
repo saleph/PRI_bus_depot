@@ -28,21 +28,24 @@ int remove_bus(Bus* the_bus)
     return 1;
 }
 
-/*TODO!!!*/
 void delete_bus_references(Bus* the_bus)
 {
     /* for each depot in memberships list
      * delete reference to removed bus
      */
-    ListNode *list_node;
+    ListNode *list_node, *tmp_node;
     Depot *the_depot;
 
     for (list_node=the_bus->memberships.head;
          list_node;
-         list_node=list_node->next)
+         )
          {
+             tmp_node = list_node->next;
              the_depot = (Depot*)(list_node->object);
+             /* here list_node may be freed! so use of tmp_node is necessary */
+             /* I love you VALGRIND */
              remove_assignment_from(the_depot->name, the_bus->side_no);
+             list_node = tmp_node;
          }
 }
 

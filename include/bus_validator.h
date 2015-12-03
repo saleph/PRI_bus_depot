@@ -8,7 +8,12 @@
 
 int is_side_no_valid(char*);
 int is_line_no_valid(char*);
-int is_driver_name_valid(char*);
+
+/* returns valid copy of arguement
+ * NULL if it was incorrect
+ */
+char *is_driver_name_valid(char*);
+
 int is_driver_pesel_valid(char*);
 int is_number(char*);
 

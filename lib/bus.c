@@ -5,7 +5,7 @@ Bus *new_bus(char* side_no, char* line_no, char* name, char* driver_pesel)
 {
     Bus *the_bus;
 
-    the_bus = malloc(sizeof (struct Bus));
+    the_bus = calloc(1, sizeof (struct Bus));
     if (!the_bus) {
         printf("MEMORY ALLOCATION ERROR! (new bus)\n");
         return NULL;
@@ -22,16 +22,6 @@ Bus *new_bus(char* side_no, char* line_no, char* name, char* driver_pesel)
        }
 
     return the_bus;
-}
-
-void del_bus(void* the_bus_pointer)
-{
-    Bus *the_bus;
-    the_bus = (Bus*)the_bus_pointer;
-
-    /* deletes nodes only! */
-    delete_list(&(the_bus->memberships), del_node_only);
-    free(the_bus);
 }
 
 int set_side_no(Bus* a_bus, char* side_no)
@@ -53,10 +43,11 @@ int set_line_no(Bus* a_bus, char* line_no)
 
 int set_driver_name(Bus* a_bus, char* name)
 {
-    if (!is_driver_name_valid(name))
+    char *correct_name;
+    if (!(correct_name = is_driver_name_valid(name)))
         return 0;
 
-    strcpy(a_bus->driver_name, name);
+    strcpy(a_bus->driver_name, correct_name);
     return 1;
 }
 
@@ -86,4 +77,14 @@ void print_bus_memberships(void* the_depot_pointer)
     Depot *the_depot;
     the_depot = (Depot*)the_depot_pointer;
     printf("%s ", the_depot->name);
+}
+
+void del_bus(void* the_bus_pointer)
+{
+    Bus *the_bus;
+    the_bus = (Bus*)the_bus_pointer;
+
+    /* deletes nodes only! */
+    delete_list(&(the_bus->memberships), del_node_only);
+    free(the_bus);
 }

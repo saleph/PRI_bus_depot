@@ -1,14 +1,14 @@
 #include "../include/depot_validator.h"
 
 
-int is_depot_name_valid(char* input_string)
+char *is_depot_name_valid(char* input_string)
 {
     unsigned int i;
-    char a_string[64];
+    static char a_string[64];
 
     if (strlen(input_string) > 63) {
         printf("Depot name is too long! (max 63 letters)\n");
-        return 0;
+        return NULL;
     }
 
     strcpy(a_string, input_string);
@@ -39,9 +39,9 @@ int is_depot_name_valid(char* input_string)
         }
 
         /* if a_string[i] is not a letter or digit */
-        return 0;
+        return NULL;
     }
 
     /* if everything gone properly */
-    return 1;
+    return a_string;
 }

@@ -5,7 +5,7 @@ Depot *new_depot(char* a_string)
 {
     Depot *the_depot;
 
-    the_depot = malloc(sizeof (struct Depot));
+    the_depot = calloc(1, sizeof (struct Depot));
     if (!the_depot) {
         printf("MEMORY ALLOCATION ERROR! (new depot)\n");
         return NULL;
@@ -31,10 +31,11 @@ void del_depot(void* the_depot_pointer)
 
 int set_depot_name(Depot* a_depot, char* name)
 {
-    if (!is_depot_name_valid(name))
+    char *correct_name;
+    if (!(correct_name = is_depot_name_valid(name)))
         return 0;
 
-    strcpy(a_depot->name, name);
+    strcpy(a_depot->name, correct_name);
     return 1;
 }
 

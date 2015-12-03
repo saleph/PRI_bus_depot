@@ -6,6 +6,6 @@
 #include <stdio.h>
 #include "messages.h"
 
-int is_depot_name_valid(char*);
+char *is_depot_name_valid(char*);
 
 #endif /* DEPOT_VALIDATOR_H_INCLUDED */

@@ -28,14 +28,14 @@ int is_line_no_valid(char* a_string)
     return 1;
 }
 
-int is_driver_name_valid(char* input_string)
+char *is_driver_name_valid(char* input_string)
 {
     unsigned int i;
-    char a_string[64];
+    static char a_string[64];
 
     if (strlen(input_string) > 63) {
         printf("Name is too long! (max 63 letters)\n");
-        return 0;
+        return NULL;
     }
 
     strcpy(a_string, input_string);
@@ -66,11 +66,11 @@ int is_driver_name_valid(char* input_string)
         }
 
         /* if a_string[i] is not a letter */
-        return 0;
+        return NULL;
     }
 
     /* if everything gone properly */
-    return 1;
+    return a_string;
 }
 
 int is_driver_pesel_valid(char* a_string)
