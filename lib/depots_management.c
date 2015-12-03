@@ -12,7 +12,8 @@ int add_depot(char* depot_name)
     if (!the_depot)
         return 0;
 
-    append_to(&depots, the_depot, depots_names_cmp);
+    if(!append_to(&depots, the_depot, depots_names_cmp))
+        free(the_depot);
     return 1;
 }
 

@@ -64,6 +64,7 @@ ListNode *find_place_for_new_node(ListNode* new_node, List* a_list, void* an_obj
              curr_val = (*cmp)(an_object, list_node->object);
              /* if an_object already exist */
              if (!curr_val) {
+                free(new_node->object);
                 free(new_node);
                 return NULL;
              }
@@ -83,6 +84,7 @@ ListNode *find_place_for_new_node(ListNode* new_node, List* a_list, void* an_obj
                  next_val = (*cmp)(an_object, next_node->object);
                  /* if next element is equal current */
                  if (!next_val) {
+                    free(new_node->object);
                     free(new_node);
                     return NULL;
                  }
