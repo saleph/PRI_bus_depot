@@ -11,7 +11,7 @@
 
 void create_data();
 void change_some_references();
-void some_filters();
+void test_filters();
 void print_data();
 
 #endif /* TESTS_H_INCLUDED */

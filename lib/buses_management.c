@@ -22,7 +22,7 @@ int remove_bus(Bus* the_bus)
     /* removes list of depots' pointers */
     delete_bus_references(the_bus);
     if(!remove_from(&buses, the_bus, del_bus)) {
-        msg(BUS_REMOVING_FAILED);
+        msg(BUS_REMOVE_FAILED);
         return 0;
     }
     return 1;

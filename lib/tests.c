@@ -43,7 +43,7 @@ void create_data()
     add_depot("c");
 
     assign_to("A", 1);
-    assign_to("B", 15);
+    assign_to("B", 1);
     assign_to("C", 3);
     assign_to("A", 2);
     assign_to("A", 1);

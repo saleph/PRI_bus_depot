@@ -14,11 +14,14 @@ void msg(enum Message message)
     case NOT_FOUND:
         printf("This element doesn't exist!\n");
         break;
-    case DEPOT_REMOVING_FAILED:
+    case DEPOT_REMOVE_FAILED:
         printf("Removing depot from list failed!\n");
         break;
-    case BUS_REMOVING_FAILED:
+    case BUS_REMOVE_FAILED:
         printf("Removing bus from list failed!\n");
+        break;
+    case FILE_OPEN_FAILED:
+        printf("OPEN NEW FILE TO SAVE DATA FAILED!\n");
         break;
     }
 }

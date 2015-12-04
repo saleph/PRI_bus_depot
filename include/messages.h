@@ -7,8 +7,9 @@ enum Message {
     MALLOC_ERR,
     ALREADY_EXIST,
     NOT_FOUND,
-    DEPOT_REMOVING_FAILED,
-    BUS_REMOVING_FAILED
+    DEPOT_REMOVE_FAILED,
+    BUS_REMOVE_FAILED,
+    FILE_OPEN_FAILED
 };
 
 void msg(enum Message);

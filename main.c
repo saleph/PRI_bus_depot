@@ -7,7 +7,7 @@ int main()
 {
     create_data();
     print_data();
-    /*change_some_references();*/
+    change_some_references();
     printf("\n\n");
     test_filters();
     clean_up_mem();
