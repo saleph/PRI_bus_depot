@@ -68,7 +68,5 @@ int integers_cmp(int first, int second)
 
 int strings_cmp(char* first, char* second)
 {
-    int ret;
-    ret = strcmp(first, second);
     return strcmp(first, second);
 }

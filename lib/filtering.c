@@ -38,7 +38,7 @@ void print_filtered_by(enum FilterType filter_type, void* value)
     case DRIVER_PESEL:
         a_string = (char*)value;
         filtered = filter_buses_by_driver_pesel(&buses, a_string);
-        do_for_each_in(&buses, print_bus_info);
+        do_for_each_in(&filtered, print_bus_info);
         break;
     case DEPOT_NAME:
         a_string = (char*)value;

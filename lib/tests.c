@@ -8,7 +8,7 @@ void create_data()
     add_bus("1", "11", "h", "11111111111");
     add_bus("1", "11", "d", "11111231111");
     add_bus("2", "11", "c", "11111111111");
-    add_bus("3", "11", "v", "11111551111");
+    add_bus("3", "11", "v", "21111551111");
     add_bus("4", "12", "b", "11111111111");
     add_bus("1", "13", "n", "11111116111");
     add_bus("1", "14", "k", "11111111111");
@@ -72,24 +72,26 @@ void test_filters()
     int no;
     char txt[256];
 
+    printf("--------SIDE NO\n");
     no = 5;
     print_filtered_by(SIDE_NO, (void*)(&no));
-    printf("--------\n");
 
+    printf("--------LINE NO\n");
     no = 11;
     print_filtered_by(LINE_NO, (void*)(&no));
-    printf("--------\n");
 
+    printf("--------DRIVER NAME\n");
     strcpy(txt, "W");
     print_filtered_by(DRIVER_NAME, (void*)txt);
-    printf("--------\n");
 
-    strcpy(txt, "11111551111");
+    printf("-------- PESEL\n");
+    strcpy(txt, "11111111111");
     print_filtered_by(DRIVER_PESEL, (void*)txt);
-    printf("--------\n");
 
-    strcpy(txt, "A");
+    printf("-------- DEPOT NAME\n");
+    strcpy(txt, "B");
     print_filtered_by(DEPOT_NAME, (void*)txt);
+
     printf("--------\n");
 
 }
