@@ -42,7 +42,7 @@ void print_filtered_by(enum FilterType filter_type, void* value)
         break;
     case DEPOT_NAME:
         a_string = (char*)value;
-        filtered = filter_depots_by_name(&depots, print_depot_info);
+        filtered = filter_depots_by_name(&depots, a_string);
         do_for_each_in(&filtered, print_depot_info);
         break;
     }

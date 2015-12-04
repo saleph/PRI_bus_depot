@@ -72,6 +72,8 @@ void test_filters()
     int no;
     char txt[256];
 
+    printf("======= FILTERING ==========\n\n");
+
     printf("--------SIDE NO\n");
     no = 5;
     print_filtered_by(SIDE_NO, (void*)(&no));
@@ -89,7 +91,7 @@ void test_filters()
     print_filtered_by(DRIVER_PESEL, (void*)txt);
 
     printf("-------- DEPOT NAME\n");
-    strcpy(txt, "B");
+    strcpy(txt, "A");
     print_filtered_by(DEPOT_NAME, (void*)txt);
 
     printf("--------\n");
