@@ -7,14 +7,14 @@
 #include "messages.h"
 #include "extracting.h"
 
-/* filtering returns a pointer to static List variable
- * which contains matching records. Passed list can be
- * also previously filtered List
- */
-List filter_buses_by_side_no(List*, int);
-List filter_buses_by_line_no(List*, int);
-List filter_buses_by_driver_name(List*, char*);
-List filter_buses_by_driver_pesel(List*, char*);
-List filter_depots_by_name(List*, char*);
+enum FilterType {
+    SIDE_NO,
+    LINE_NO,
+    DRIVER_NAME,
+    DRIVER_PESEL,
+    DEPOT_NAME
+};
+
+void print_filtered_by(enum FilterType, void*);
 
 #endif /* FILTERING_H_INCLUDED */

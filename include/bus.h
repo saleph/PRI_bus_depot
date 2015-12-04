@@ -26,5 +26,6 @@ int set_driver_pesel(Bus*, char*);
 
 void print_bus_info(void*);
 void print_bus_memberships(void*);
+void print_bus_info_from_node(void*);
 
 #endif /* BUS_H_INCLUDED */

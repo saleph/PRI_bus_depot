@@ -3,30 +3,30 @@
 void create_data()
 {
     add_bus("1", "11", "w", "11111111111");
-    add_bus("1", "11", "w", "11111111111");
-    add_bus("2", "11", "w", "11111111111");
-    add_bus("1", "11", "w", "11111111111");
-    add_bus("1", "11", "w", "11111111111");
-    add_bus("2", "11", "w", "11111111111");
+    add_bus("1", "11", "a", "11111111111");
+    add_bus("2", "11", "d", "11111111111");
+    add_bus("1", "11", "h", "11111111111");
+    add_bus("1", "11", "d", "11111231111");
+    add_bus("2", "11", "c", "11111111111");
+    add_bus("3", "11", "v", "11111551111");
+    add_bus("4", "12", "b", "11111111111");
+    add_bus("1", "13", "n", "11111116111");
+    add_bus("1", "14", "k", "11111111111");
+    add_bus("2", "15", "u", "11111111111");
+    add_bus("1", "16", "y", "11111111111");
+    add_bus("9", "17", "t", "11111111111");
+    add_bus("5", "18", "w", "11115411111");
     add_bus("3", "11", "w", "11111111111");
-    add_bus("4", "11", "w", "11111111111");
-    add_bus("1", "11", "w", "11111111111");
-    add_bus("1", "11", "w", "11111111111");
-    add_bus("2", "11", "w", "11111111111");
-    add_bus("1", "11", "w", "11111111111");
-    add_bus("12", "11", "w", "11111111111");
-    add_bus("5", "11", "w", "11111111111");
-    add_bus("3", "11", "w", "11111111111");
-    add_bus("4", "11", "w", "11111111111");
+    add_bus("4", "11", "q", "11111111111");
     add_bus("1", "11", "w", "11111111111");
     add_bus("8", "11", "w", "11111111111");
-    add_bus("7", "11", "w", "11111111111");
-    add_bus("1", "11", "w", "11111111111");
-    add_bus("15", "11", "w", "11111111111");
-    add_bus("6", "11", "w", "11111111111");
-    add_bus("13", "11", "w", "11111111111");
+    add_bus("7", "11", "w", "11112111111");
+    add_bus("1", "91", "w", "11111111111");
+    add_bus("5", "17", "w", "11111111211");
+    add_bus("6", "11", "w", "11111131111");
+    add_bus("1", "11", "w", "11111141111");
     add_bus("4", "11", "w", "11111111111");
-    add_bus("1", "11", "w", "11111111111");
+    add_bus("1", "11", "w", "11111111711");
 
     add_depot("a");
     add_depot("e");
@@ -67,12 +67,35 @@ void change_some_references()
     remove_depot(the_depot);
 }
 
+void test_filters()
+{
+    int no;
+    char txt[256];
+
+    no = 5;
+    print_filtered_by(SIDE_NO, (void*)(&no));
+    printf("--------\n");
+
+    no = 11;
+    print_filtered_by(LINE_NO, (void*)(&no));
+    printf("--------\n");
+
+    strcpy(txt, "W");
+    print_filtered_by(DRIVER_NAME, (void*)txt);
+    printf("--------\n");
+
+    strcpy(txt, "11111551111");
+    print_filtered_by(DRIVER_PESEL, (void*)txt);
+    printf("--------\n");
+
+    strcpy(txt, "A");
+    print_filtered_by(DEPOT_NAME, (void*)txt);
+    printf("--------\n");
+
+}
+
 void print_data()
 {
-    ListNode *node;
-    for (node=buses.head; node; node=node->next)
-        print_bus_info((Bus*)(node->object));
-
-    for (node=depots.head; node; node=node->next)
-        print_depot_info((Depot*)(node->object));
+    do_for_each_in(&buses, print_bus_info);
+    do_for_each_in(&depots, print_depot_info);
 }
