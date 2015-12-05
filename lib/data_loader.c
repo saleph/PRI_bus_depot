@@ -102,7 +102,7 @@ char *parse_side_no(char* token)
             return (token + i);
         }
     }
-    return &("\0");
+    return NULL;
 }
 
 char *parse_line_no(char* token)
@@ -116,7 +116,7 @@ char *parse_line_no(char* token)
             return (token + i);
         }
     }
-    return &("\0");
+    return NULL;
 }
 
 char *parse_driver_name(char* token)
@@ -130,7 +130,7 @@ char *parse_driver_name(char* token)
             return (token + i);
         }
     }
-    return &("\0");
+    return NULL;
 }
 
 char *parse_driver_pesel(char* token)
@@ -144,7 +144,7 @@ char *parse_driver_pesel(char* token)
             return (token + i);
         }
     }
-    return &("\0");
+    return NULL;
 }
 
 void parse_depot(char* line)
@@ -177,7 +177,7 @@ char *parse_depot_name(char* token)
             return (token + i);
         }
     }
-    return &("\0");
+    return NULL;
 }
 
 char *parse_bus_as_ref(char* token)
@@ -191,7 +191,7 @@ char *parse_bus_as_ref(char* token)
             return (token + i);
         }
     }
-    return &("\0");
+    return NULL;
 }
 
 void del_loaded_data()

@@ -58,9 +58,9 @@ void change_some_references()
     Bus *the_bus;
     Depot *the_depot;
     int side_no;
-    side_no = 3;
+    side_no = 1;
     the_bus = find_object_with_item_in(&buses, (void*)(&side_no), get_side_no, side_no_cmp);
-    the_depot = find_object_with_item_in(&depots, (void*)("A"), get_depot_name, depots_names_cmp);
+    the_depot = find_object_with_item_in(&depots, (void*)("D"), get_depot_name, depots_names_cmp);
     remove_bus(the_bus);
     remove_depot(the_depot);
     the_depot = find_object_with_item_in(&depots, (void*)("B"), get_depot_name, depots_names_cmp);

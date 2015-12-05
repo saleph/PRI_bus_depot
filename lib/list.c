@@ -203,6 +203,7 @@ List find_occurrences(List* the_list, void* item,
     static List occurrences;
     ListNode *list_node;
     void *node_item;
+    int ret_val;
     occurrences.length = 0;
     occurrences.head = occurrences.tail = NULL;
 
@@ -213,7 +214,8 @@ List find_occurrences(List* the_list, void* item,
              node_item = (*get)(list_node);
              /* if the item is the same as
               * its equivalent in ListNode */
-             if (!((*cmp)(node_item, item)))
+             ret_val = (*cmp)(node_item, item);
+             if (!ret_val)
                 append_to(&occurrences, list_node->object, cmp);
          }
     return occurrences;

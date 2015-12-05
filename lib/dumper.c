@@ -11,8 +11,10 @@ static void buses_now_comment();
 static void depots_now_comment();
 
 
-int dump_database_to(const char* filename)
+int dump_database_to_file()
 {
+    char filename[16];
+    strcpy(filename, "Data.txt");
     file_hook = fopen(filename, "w");
     if (!file_hook) {
         msg(SAVING_FAILED);
@@ -78,10 +80,7 @@ void start_comments()
     fprintf(file_hook, "\n\n");
 }
 
-void backup(const char* filename)
+void backup()
 {
-    char new_filename[128];
-    strcpy(new_filename, filename);
-    strcat(new_filename, ".backup");
-    rename(filename, new_filename);
+    rename("Data.txt", "Data.backup");
 }

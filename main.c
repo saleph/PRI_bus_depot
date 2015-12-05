@@ -9,7 +9,7 @@ int main()
 {
     load_database_from("data.txt");
     /*create_data();
-    dump_database_to("data.txt");*/
+    dump_database_to_file("data.txt");*/
     print_data();
     change_some_references();
     printf("\n\n");
