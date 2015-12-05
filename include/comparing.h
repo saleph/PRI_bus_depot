@@ -21,8 +21,4 @@ int drivers_pesels_cmp(const void*, const void*);
 int depots_names_cmp(const void*, const void*);
 int names_cmp(const void*, const void*);
 
-
-int integers_cmp(int, int);
-int strings_cmp(char*, char*);
-
 #endif /* SORTING_H_INCLUDED */

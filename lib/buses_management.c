@@ -1,7 +1,8 @@
 #include "../include/buses_management.h"
 
-List buses;
 
+List buses;
+static void delete_bus_references(Bus*);
 
 int add_bus(char* side_no, char* line_no, char* name, char* pesel)
 {

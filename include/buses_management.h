@@ -16,8 +16,6 @@ int add_bus(char*, char*, char*, char*);
 /* removes passed bus from the list */
 int remove_bus(Bus*);
 
-void delete_bus_references(Bus*);
-
 int edit_bus_side_no(Bus*, char*);
 int edit_bus_line_no(Bus*, char*);
 int edit_bus_driver_name(Bus*, char*);

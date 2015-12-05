@@ -100,6 +100,6 @@ void test_filters()
 
 void print_data()
 {
-    do_for_each_in(&buses, print_bus_info);
-    do_for_each_in(&depots, print_depot_info);
+    for_each_in(&buses, print_bus_info);
+    for_each_in(&depots, print_depot_info);
 }

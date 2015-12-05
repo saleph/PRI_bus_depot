@@ -1,6 +1,9 @@
 #include "../include/list.h"
 
 
+static ListNode *find_place_for_new_node(ListNode*, List*, void*, int ());
+
+
 int append_to(List* a_list, void* an_object, int (*cmp)(const void*, const void*))
 {
     ListNode *temp_node;
@@ -221,7 +224,7 @@ List find_occurrences(List* the_list, void* item,
     return occurrences;
 }
 
-void do_for_each_in(List* the_list, void (*print)(void*))
+void for_each_in(List* the_list, void (*print)(void*))
 {
     ListNode *list_node;
     for (list_node=the_list->head;

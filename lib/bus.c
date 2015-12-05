@@ -1,6 +1,8 @@
 #include "../include/bus.h"
 
 
+static void print_bus_memberships(void*);
+
 Bus *new_bus(char* side_no, char* line_no, char* name, char* driver_pesel)
 {
     Bus *the_bus;
@@ -67,7 +69,7 @@ void print_bus_info(void* the_bus_ptr)
     printf("Bus: %04d %d %s %s Depots: ", the_bus->side_no,
            the_bus->line_no, the_bus->driver_name, the_bus->driver_pesel);
 
-    do_for_each_in(&(the_bus->memberships), print_bus_memberships);
+    for_each_in(&(the_bus->memberships), print_bus_memberships);
 
     printf("\n");
 }

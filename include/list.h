@@ -25,8 +25,6 @@ typedef struct List {
  */
 int append_to(List*, void*, int ());
 
-ListNode *find_place_for_new_node(ListNode*, List*, void*, int ());
-
 /* removes given ListNode
  * returns 1 if successful
  * returns 0 if list is empty
@@ -45,8 +43,8 @@ ListNode *find_node_in(List*, void*);
 void *find_object_with_item_in(List*, void*, void*(), int ());
 
 /* removes the all nodes from list
- * but WITHOUT touching the object in
- * the removing node */
+ * with passed function
+ */
 void delete_list(List*, void ());
 
 /* removes node only - WITHOUT
@@ -61,9 +59,9 @@ void del_node_only(void*);
  * and comparing fuction */
 List find_occurrences(List*, void*, void *(ListNode*), int (const void*, const void*));
 
-/* print content of the list
- * require printing procedure
+/* foreach implementation require procedure
+ * to do some operation on ListNodes
  */
-void do_for_each_in(List*, void ());
+void for_each_in(List*, void ());
 
 #endif /* LIST_H */

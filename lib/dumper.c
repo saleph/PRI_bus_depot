@@ -23,10 +23,10 @@ int dump_database_to_file()
     start_comments();
 
     buses_now_comment();
-    do_for_each_in(&buses, dump_bus);
+    for_each_in(&buses, dump_bus);
 
     depots_now_comment();
-    do_for_each_in(&depots, dump_depot);
+    for_each_in(&depots, dump_depot);
 
     fclose(file_hook);
     return 1;
@@ -60,7 +60,7 @@ void dump_depot(void* the_depot_ptr)
     Depot *the_depot;
     the_depot = (Depot*)the_depot_ptr;
     fprintf(file_hook, "d: %s", the_depot->name);
-    do_for_each_in(&(the_depot->members), dump_bus_as_ref);
+    for_each_in(&(the_depot->members), dump_bus_as_ref);
     fprintf(file_hook, "\n");
 }
 

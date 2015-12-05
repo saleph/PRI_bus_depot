@@ -1,6 +1,8 @@
 #include "../include/depot.h"
 
 
+static void print_depot_members(void*);
+
 Depot *new_depot(char* a_string)
 {
     Depot *the_depot;
@@ -45,7 +47,7 @@ void print_depot_info(void* the_depot_pointer)
     the_depot = (Depot*)the_depot_pointer;
     printf("Depot: %s Buses inner: ", the_depot->name);
 
-    do_for_each_in(&(the_depot->members), print_depot_members);
+    for_each_in(&(the_depot->members), print_depot_members);
 
     printf("\n");
 }

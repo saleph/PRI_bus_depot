@@ -20,6 +20,4 @@ int set_depot_name(Depot*, char*);
 
 void print_depot_info(void*);
 
-void print_depot_members(void*);
-
 #endif /* DEPOT_H_INCLUDED */

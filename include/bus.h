@@ -9,7 +9,7 @@
 #include "messages.h"
 
 typedef struct Bus {
-    int side_no;
+    int side_no; /* the key */
     int line_no;
     char driver_name[64];
     char driver_pesel[12];
@@ -25,7 +25,5 @@ int set_driver_name(Bus*, char*);
 int set_driver_pesel(Bus*, char*);
 
 void print_bus_info(void*);
-void print_bus_memberships(void*);
-void print_bus_info_from_node(void*);
 
 #endif /* BUS_H_INCLUDED */

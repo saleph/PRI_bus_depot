@@ -1,6 +1,10 @@
 #include "../include/cleanup.h"
 
 
+static void clean_bus(void*);
+static void clean_depot(void*);
+static void clean_membership(void*);
+
 void clean_up_mem()
 {
     delete_list(&buses, clean_bus);

@@ -23,27 +23,27 @@ void print_filtered_by(enum FilterType filter_type, void* value)
     case SIDE_NO:
         a_number = *(int*)value;
         filtered = filter_buses_by_side_no(&buses, a_number);
-        do_for_each_in(&filtered, print_bus_info);
+        for_each_in(&filtered, print_bus_info);
         break;
     case LINE_NO:
         a_number = *(int*)value;
         filtered = filter_buses_by_line_no(&buses, a_number);
-        do_for_each_in(&filtered, print_bus_info);
+        for_each_in(&filtered, print_bus_info);
         break;
     case DRIVER_NAME:
         a_string = (char*)value;
         filtered = filter_buses_by_driver_name(&buses, a_string);
-        do_for_each_in(&filtered, print_bus_info);
+        for_each_in(&filtered, print_bus_info);
         break;
     case DRIVER_PESEL:
         a_string = (char*)value;
         filtered = filter_buses_by_driver_pesel(&buses, a_string);
-        do_for_each_in(&filtered, print_bus_info);
+        for_each_in(&filtered, print_bus_info);
         break;
     case DEPOT_NAME:
         a_string = (char*)value;
         filtered = filter_depots_by_name(&depots, a_string);
-        do_for_each_in(&filtered, print_depot_info);
+        for_each_in(&filtered, print_depot_info);
         break;
     }
     delete_list(&filtered, del_node_only);

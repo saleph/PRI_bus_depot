@@ -1,6 +1,10 @@
 #include "../include/comparing.h"
 
-/* buses sorting */
+
+static int integers_cmp(int, int);
+static int strings_cmp(char*, char*);
+
+/* buses comparing */
 int buses_side_no_cmp(const void *first, const void *second)
 {
     /* gets two void* to buses and extracts their side_no */
@@ -49,7 +53,8 @@ int drivers_pesels_cmp(const void* first, const void* second)
     return strings_cmp((char*)first, (char*)second);
 }
 
-/* depots sorting */
+
+/* depots comparing */
 int depots_names_cmp(const void* first, const void* second)
 {
     return strings_cmp((void*)(((Depot*)first)->name),

@@ -1,7 +1,8 @@
 #include "../include/depots_management.h"
 
-List depots;
 
+List depots;
+static void delete_depot_references(Depot*);
 
 int add_depot(char* depot_name)
 {
