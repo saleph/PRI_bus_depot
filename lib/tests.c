@@ -1,5 +1,11 @@
 #include "../include/tests.h"
 
+
+static void create_data();
+static void change_some_references();
+static void test_filters();
+static void print_data();
+
 void create_data()
 {
     add_bus("1", "11", "w", "11111111111");

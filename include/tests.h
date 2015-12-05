@@ -9,9 +9,6 @@
 #include "messages.h"
 #include "filtering.h"
 
-void create_data();
-void change_some_references();
-void test_filters();
-void print_data();
+void do_tests();
 
 #endif /* TESTS_H_INCLUDED */

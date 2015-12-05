@@ -11,11 +11,11 @@
 /* dumps data to file named
  * as the passed parameter
  */
-int dump_database_to_file();
+int dump_database_to(const char*);
 
 /* rename file passed as an
  * argument to <name>.backup
  */
-void backup();
+void backup(const char*);
 
 #endif /* DUMPER_H_INCLUDED */
