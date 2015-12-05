@@ -16,6 +16,6 @@ int dump_data_to(const char*);
 /* rename file passed as an
  * argument to <name>.backup
  */
-int backup(const char*);
+void backup(const char*);
 
 #endif /* DUMPER_H_INCLUDED */

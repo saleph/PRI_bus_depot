@@ -77,3 +77,11 @@ void start_comments()
     fprintf(file_hook, "# Fields in each record has to be separated by ',' (comma) and ends with ';' (semicolon)\n");
     fprintf(file_hook, "\n\n");
 }
+
+void backup(const char* filename)
+{
+    char new_filename[128];
+    strcpy(new_filename, filename);
+    strcat(new_filename, ".backup");
+    rename(filename, new_filename);
+}
