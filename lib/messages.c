@@ -20,8 +20,14 @@ void msg(enum Message message)
     case BUS_REMOVE_FAILED:
         printf("Removing bus from list failed!\n");
         break;
-    case FILE_OPEN_FAILED:
+    case SAVING_FAILED:
         printf("OPEN NEW FILE TO SAVE DATA FAILED!\n");
+        break;
+    case OPENING_FILE_FAILED:
+        printf("Loading database from file FAILED!\n");
+        break;
+    case FILE_DAMAGED:
+        printf("Syntax of the file is incorrect! No data has been load!\n");
         break;
     }
 }

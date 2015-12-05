@@ -11,7 +11,7 @@
 /* dumps data to file named
  * as the passed parameter
  */
-int dump_data_to(const char*);
+int dump_database_to(const char*);
 
 /* rename file passed as an
  * argument to <name>.backup

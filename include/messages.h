@@ -9,7 +9,9 @@ enum Message {
     NOT_FOUND,
     DEPOT_REMOVE_FAILED,
     BUS_REMOVE_FAILED,
-    FILE_OPEN_FAILED
+    SAVING_FAILED,
+    OPENING_FILE_FAILED,
+    FILE_DAMAGED
 };
 
 void msg(enum Message);
