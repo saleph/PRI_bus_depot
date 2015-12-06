@@ -43,6 +43,7 @@ void load_database_from(const char* filename)
             break;
         }
     }
+    msg(LOAD_SUCCESSFUL);
     fclose(file_hook);
 }
 

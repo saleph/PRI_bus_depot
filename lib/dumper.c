@@ -11,8 +11,9 @@ static void buses_now_comment();
 static void depots_now_comment();
 
 
-int dump_database_to_file(const char* filename)
+int dump_database_to(const char* filename)
 {
+    backup(filename);
     file_hook = fopen(filename, "w");
     if (!file_hook) {
         msg(SAVING_FAILED);

@@ -6,28 +6,31 @@ void msg(enum Message message)
     switch(message)
     {
     case MALLOC_ERR:
-        printf("MEMORY OVERFLOW!!!\n");
+        printf("PRZEPELNIENIE PAMIECI!!!\n");
         break;
     case ALREADY_EXIST:
-        printf("This element already exist!\n");
+        printf("Taki rekord juz istnieje!\n");
         break;
     case NOT_FOUND:
-        printf("This element doesn't exist!\n");
+        printf("Ten rekord nie istnieje!\n");
         break;
     case DEPOT_REMOVE_FAILED:
-        printf("Removing depot from list failed!\n");
+        printf("Usuwanie zajezdni z lisy NIE POWIODLO SIE!\n");
         break;
     case BUS_REMOVE_FAILED:
-        printf("Removing bus from list failed!\n");
+        printf("Usuwanie autobusu z listy NIE POWIODLO SIE!\n");
         break;
     case SAVING_FAILED:
-        printf("OPEN NEW FILE TO SAVE DATA FAILED!\n");
+        printf("OTWARCIE PLIKU DO ZAPISU NIE POWIODLO SIE!\n");
+        printf("Program musi byc uruchomiony w katalogu, do ktorego masz dostep!\n");
         break;
     case OPENING_FILE_FAILED:
-        printf("Loading database from file FAILED!\n");
+        printf("Ladowanie bazy z pliku NIE POWIODLO SIE!\n");
         break;
     case FILE_DAMAGED:
-        printf("Syntax of the file is incorrect! No data has been load!\n");
+        printf("Skladnia wczytywanych danych jest nieprawidlowa! Zadne dane nie zostaly wczytane.\n");
         break;
+    case LOAD_SUCCESSFUL:
+        printf("Wczytywanie zakonczone.\n");
     }
 }

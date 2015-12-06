@@ -11,7 +11,8 @@ enum Message {
     BUS_REMOVE_FAILED,
     SAVING_FAILED,
     OPENING_FILE_FAILED,
-    FILE_DAMAGED
+    FILE_DAMAGED,
+    LOAD_SUCCESSFUL
 };
 
 void msg(enum Message);
