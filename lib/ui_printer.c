@@ -68,7 +68,7 @@ void prt(enum PrintType prt_type)
         printf("----------\n");
         break;
     case BOLD_LINE:
-        printf("=============================\n");
+        printf("==============================================\n\n");
         break;
     }
 }

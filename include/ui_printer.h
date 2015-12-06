@@ -17,6 +17,7 @@ enum PrintType {
     NOT_A_NUMBER,
     INVALID_OPTION,
     LINE,
+    SHORT_LINE,
     BOLD_LINE
 };
 
