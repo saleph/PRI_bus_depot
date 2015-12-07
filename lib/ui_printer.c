@@ -70,5 +70,18 @@ void prt(enum PrintType prt_type)
     case BOLD_LINE:
         printf("==============================================\n\n");
         break;
+    case PRINT_DATA_MENU:
+        printf("1. Wyswietl wszystkie autobusy\n");
+        printf("2. Wyswietl wszystkie zajezdnie\n");
+        printf("3. Wyswietl autobusy przypisane do wybranej zajezdni\n");
+        printf("4. Filtruj autobusy\n");
+        prt(SHORT_LINE);
+        printf("0. Cofnij");
+        break;
+    case TYPE_DEPOT_NAME:
+        printf("Podaj nazwe zajezdni: ");
+        break;
+    case TYPE_BUS_SIDE_NO:
+        break;
     }
 }

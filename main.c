@@ -8,6 +8,7 @@
 int main()
 {
     load_database_from("data.txt");
+    start_program();
     /*dump_database_to("data.txt");*/
     /*do_tests();*/
     clean_up_mem();

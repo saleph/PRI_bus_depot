@@ -18,7 +18,10 @@ enum PrintType {
     INVALID_OPTION,
     LINE,
     SHORT_LINE,
-    BOLD_LINE
+    BOLD_LINE,
+    PRINT_DATA_MENU,
+    TYPE_DEPOT_NAME,
+    TYPE_BUS_SIDE_NO
 };
 
 void prt(enum PrintType);
