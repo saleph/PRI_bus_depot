@@ -25,5 +25,6 @@ int set_driver_name(Bus*, char*);
 int set_driver_pesel(Bus*, char*);
 
 void print_bus_info(void*);
+void print_bus_info_with_refs(void*);
 
 #endif /* BUS_H_INCLUDED */

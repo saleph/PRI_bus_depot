@@ -45,16 +45,21 @@ void print_depot_info(void* the_depot_pointer)
 {
     Depot *the_depot;
     the_depot = (Depot*)the_depot_pointer;
-    printf("Depot: %s Buses inner: ", the_depot->name);
+    printf("%s\n", the_depot->name);
+}
 
+void print_depot_info_with_refs(void* the_depot_pointer)
+{
+    Depot *the_depot;
+    the_depot = (Depot*)the_depot_pointer;
+    printf("%s\n", the_depot->name);
+    printf("  Przypisane autobusy:\n");
     for_each_in(&(the_depot->members), print_depot_members);
-
-    printf("\n");
 }
 
 void print_depot_members(void* the_bus_pointer)
 {
     Bus *the_bus;
     the_bus = (Bus*)the_bus_pointer;
-    printf("%04d ", the_bus->side_no);
+    printf("  - %04d\n", the_bus->side_no);
 }

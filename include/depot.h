@@ -19,5 +19,6 @@ void del_depot(void* the_depot_pointer);
 int set_depot_name(Depot*, char*);
 
 void print_depot_info(void*);
+void print_depot_info_with_refs(void*);
 
 #endif /* DEPOT_H_INCLUDED */

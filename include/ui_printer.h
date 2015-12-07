@@ -21,7 +21,12 @@ enum PrintType {
     BOLD_LINE,
     PRINT_DATA_MENU,
     TYPE_DEPOT_NAME,
-    TYPE_BUS_SIDE_NO
+    TYPE_BUS_SIDE_NO,
+    ADD_ASSIGNMENT,
+    DEL_ASSIGNMENT,
+    MV_ASSIGNMENT,
+    FROM_DEPOT,
+    TO_DEPOT
 };
 
 void prt(enum PrintType);

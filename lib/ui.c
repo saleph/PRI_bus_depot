@@ -291,6 +291,61 @@ void choose_type_of_refs_edit()
     }
 }
 
+void assign_dialog()
+{
+    int side_no;
+    prt(ADD_ASSIGNMENT);
+    prt(TYPE_BUS_SIDE_NO);
+    scan_to_buf();
+    if (!is_number(buffer)) {
+        prt(NOT_A_NUMBER);
+        return;
+    }
+    side_no = atoi(buffer);
+
+    prt(TYPE_DEPOT_NAME);
+    scan_to_buf();
+    assign_to(buffer, side_no);
+}
+
+void del_assign_dialog()
+{
+    int side_no;
+    prt(DEL_ASSIGNMENT);
+    prt(TYPE_BUS_SIDE_NO);
+    scan_to_buf();
+    if (!is_number(buffer)) {
+        prt(NOT_A_NUMBER);
+        return;
+    }
+    side_no = atoi(buffer);
+
+    prt(TYPE_DEPOT_NAME);
+    scan_to_buf();
+
+    remove_assignment_from(buffer, side_no);
+}
+
+void move_assign_dialog()
+{
+    int side_no;
+    char first_depot[256];
+    prt(MV_ASSIGNMENT);
+    prt(TYPE_BUS_SIDE_NO);
+    scan_to_buf();
+    if (!is_number(buffer)) {
+        prt(NOT_A_NUMBER);
+        return;
+    }
+    side_no = atoi(buffer);
+    prt(FROM_DEPOT);
+    scan_to_buf();
+    strcpy(first_depot, buffer);
+    prt(TO_DEPOT);
+    scan_to_buf();
+    move_to(first_depot, side_no, buffer);
+}
+
 void printing_data_menu()
 {
     prt(BOLD_LINE);
@@ -317,10 +372,10 @@ void choose_type_of_printing()
     switch (op_type)
     {
     case 1:
-        for_each_in(&buses, print_bus_info_wo_refs);
+        for_each_in(&buses, print_bus_info);
         break;
     case 2:
-        for_each_in(&depots, print_depot_info_wo_refs);
+        for_each_in(&depots, print_depot_info);
         break;
     case 3:
         print_one_chose_depot_dialog();

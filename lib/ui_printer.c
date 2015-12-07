@@ -82,6 +82,23 @@ void prt(enum PrintType prt_type)
         printf("Podaj nazwe zajezdni: ");
         break;
     case TYPE_BUS_SIDE_NO:
+        printf("Podaj numer boczny autobusu: ");
         break;
+    case ADD_ASSIGNMENT:
+        printf("Przypisywanie autobusu do zajezdni\n");
+        break;
+    case DEL_ASSIGNMENT:
+        printf("Usuwanie przypisania autobusu do zajezdni\n");
+        break;
+    case MV_ASSIGNMENT:
+        printf("Przenoszenie autobusu z jednej zajezdni do drugiej\n");
+        break;
+    case FROM_DEPOT:
+        printf("Z zajezdni: ");
+        break;
+    case TO_DEPOT:
+        printf("Do zajezdni: ");
+        break;
+
     }
 }
