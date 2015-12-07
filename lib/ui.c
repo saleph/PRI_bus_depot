@@ -1,8 +1,5 @@
 #include "../include/ui.h"
 
-static void print_bus_info_wo_refs();
-static void print_depot_info_wo_refs();
-
 static int modified;
 static char buffer[256];
 
@@ -61,9 +58,9 @@ void load_prev_data()
 {
     prt(LOAD_FROM_FILE);
     scan_to_buf();
-    prt(CLS);
     if (is_agree())
         load_database_from("Dane.txt");
+    prt(CLS);
 }
 
 void scan_to_buf()
@@ -73,7 +70,7 @@ void scan_to_buf()
 
 int is_agree()
 {
-    if ((buffer[0] == 'y' || buffer[0] == 'Y') &&
+    if ((buffer[0] == 't' || buffer[0] == 'T') &&
         strlen(buffer) == 1)
         return 1;
     return 0;
@@ -185,6 +182,39 @@ void add_bus_or_depot()
         prt(INVALID_OPTION);
         break;
     }
+}
+
+void add_bus_dialog()
+{
+    char side_no[256], line_no[256], pesel[256];
+    prt(TYPE_BUS_SIDE_NO);
+    scan_to_buf();
+    if (!is_number(buffer)) {
+        prt(NOT_A_NUMBER);
+        return;
+    }
+    strcpy(side_no, buffer);
+
+    prt(TYPE_BUS_LINE_NO);
+    scan_to_buf();
+    if (!is_number(buffer)) {
+        prt(NOT_A_NUMBER);
+        return;
+    }
+    strcpy(line_no, buffer);
+
+    prt(TYPE_BUS_DRIVER_PESEL);
+    scan_to_buf();
+    if (!is_number(buffer)) {
+        prt(NOT_A_NUMBER);
+        return;
+    }
+    strcpy(pesel, buffer);
+
+    prt(TYPE_BUS_DRIVER_NAME);
+    scan_to_buf();
+
+    add_bus(side_no, line_no, buffer, pesel);
 }
 
 void edit_bus_or_depot()
@@ -348,7 +378,6 @@ void move_assign_dialog()
 
 void printing_data_menu()
 {
-    prt(BOLD_LINE);
     while (1) {
         prt(PRINT_DATA_MENU);
         prt(CHOOSE_OPT);
@@ -373,15 +402,74 @@ void choose_type_of_printing()
     {
     case 1:
         for_each_in(&buses, print_bus_info);
+        prt(LINE);
         break;
     case 2:
         for_each_in(&depots, print_depot_info);
+        prt(LINE);
         break;
     case 3:
         print_one_chose_depot_dialog();
+        prt(LINE);
         break;
     case 4:
         buses_filtering_dialog();
+        prt(LINE);
+        break;
+    default:
+        prt(INVALID_OPTION);
+        break;
+    }
+}
+
+void print_one_chose_depot_dialog()
+{
+    prt(CHOOSE_DEPOT_TO_PRINT);
+    scan_to_buf();
+    print_filtered_by(DEPOT_NAME, buffer);
+}
+
+void buses_filtering_dialog()
+{
+    int filter_type, int_val;
+    prt(TYPES_OF_BUSES_FILTERING);
+    prt(CHOOSE_OPT);
+    scan_to_buf();
+    if (!is_number(buffer)) {
+        prt(NOT_A_NUMBER);
+        return;
+    }
+    filter_type = atoi(buffer);
+    prt(TYPE_VALUE_OF_FIELD);
+    scan_to_buf();
+
+    switch (filter_type)
+    {
+    case 1:
+        if (!is_number(buffer)) {
+            prt(NOT_A_NUMBER);
+            return;
+        }
+        int_val = atoi(buffer);
+        print_filtered_by(SIDE_NO, &int_val);
+        break;
+    case 2:
+        if (!is_number(buffer)) {
+            prt(NOT_A_NUMBER);
+            return;
+        }
+        int_val = atoi(buffer);
+        print_filtered_by(LINE_NO, &int_val);
+        break;
+    case 3:
+        if (!is_number(buffer)) {
+            prt(NOT_A_NUMBER);
+            return;
+        }
+        print_filtered_by(DRIVER_PESEL, buffer);
+        break;
+    case 4:
+        print_filtered_by(DRIVER_NAME, buffer);
         break;
     default:
         prt(INVALID_OPTION);

@@ -9,6 +9,7 @@
 #include "data_loader.h"
 #include "dumper.h"
 #include "filtering.h"
+#include "cleanup.h"
 
 void start_program();
 

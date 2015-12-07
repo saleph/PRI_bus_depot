@@ -76,7 +76,7 @@ void prt(enum PrintType prt_type)
         printf("3. Wyswietl autobusy przypisane do wybranej zajezdni\n");
         printf("4. Filtruj autobusy\n");
         prt(SHORT_LINE);
-        printf("0. Cofnij");
+        printf("0. Cofnij\n\n");
         break;
     case TYPE_DEPOT_NAME:
         printf("Podaj nazwe zajezdni: ");
@@ -99,6 +99,27 @@ void prt(enum PrintType prt_type)
     case TO_DEPOT:
         printf("Do zajezdni: ");
         break;
-
+    case CHOOSE_DEPOT_TO_PRINT:
+        printf("Podaj nazwe zajezdni, aby wyswietlic zawarte w niej autobusy: ");
+        break;
+    case TYPES_OF_BUSES_FILTERING:
+        printf("Wzgledem jakiego pola chcesz przeprowadzic filtrowanie?\n");
+        printf("1. Numer boczny\n");
+        printf("2. Numer linii\n");
+        printf("3. Numer pesel\n");
+        printf("4. Imie i nazwisko\n");
+        break;
+    case TYPE_VALUE_OF_FIELD:
+        printf("Podaj wartosc, po ktorej ma nastapic filtrowanie: ");
+        break;
+    case TYPE_BUS_LINE_NO:
+        printf("Podaj numer linii: ");
+        break;
+    case TYPE_BUS_DRIVER_PESEL:
+        printf("Podaj numer PESEL kierowcy: ");
+        break;
+    case TYPE_BUS_DRIVER_NAME:
+        printf("Podaj nazwisko i imie kierowcy: ");
+        break;
     }
 }
