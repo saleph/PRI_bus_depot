@@ -16,7 +16,7 @@ void prt(enum PrintType prt_type)
         printf("Chcesz wczytac dane zapisane w pliku Dane.txt? [t/n]: ");
         break;
     case MAIN_MENU:
-        printf("MENU\n");
+        printf("MENU GLOWNE\n");
         printf("1. Dodaj/usun/edytuj dane\n");
         printf("2. Dodaj/usun/przenies dowiazania\n");
         printf("3. Wyswietlanie danych\n");
@@ -25,6 +25,7 @@ void prt(enum PrintType prt_type)
         printf("0. ZAMKNIECIE PROGRAMU\n\n");
         break;
     case MODIFYING_DATA_MENU:
+        printf("MODYFIKACJA DANYCH\n");
         printf("1. Dodaj nowy autobus/zajezdnie\n");
         printf("2. Edytuj istniejacy autobus/zajezdnie\n");
         printf("3. Usun autobus/zajezdnie\n");
@@ -32,6 +33,7 @@ void prt(enum PrintType prt_type)
         printf("0. Cofnij\n\n");
         break;
     case MODIFYING_REFERENCES_MENU:
+        printf("MODYFIKACJA PRZYPISAN\n");
         printf("1. Przypisz autobus do zajezdni\n");
         printf("2. Usun przypisanie\n");
         printf("3. Przenies autobus do innej zajezdni\n");
@@ -48,8 +50,8 @@ void prt(enum PrintType prt_type)
         printf("Podaj numer opcji: ");
         break;
     case DATA_HAS_BEEN_MODIFIED:
-        printf("Dane zostaly zmodyfikowane.\n");
-        printf("Czy chcialbys zapisac dane przed wyjsciem? [t/n]: ");
+        printf("DANE ZOSTALY ZMODYFIKOWANE!\n");
+        printf("Czy chcialbys zapisac zmiany przed wyjsciem? [t/n]: ");
         break;
     case EXITING:
         prt(BOLD_LINE);
@@ -57,9 +59,11 @@ void prt(enum PrintType prt_type)
         break;
     case NOT_A_NUMBER:
         printf("To nie jest liczba!\n");
+        prt(BOLD_LINE);
         break;
     case INVALID_OPTION:
         printf("Opcja o takim numerze nie istnieje!\n");
+        prt(BOLD_LINE);
         break;
     case LINE:
         printf("------------------------------\n");
@@ -71,6 +75,7 @@ void prt(enum PrintType prt_type)
         printf("==============================================\n\n");
         break;
     case PRINT_DATA_MENU:
+        printf("WYSWIETLANIE DANYCH\n");
         printf("1. Wyswietl wszystkie autobusy\n");
         printf("2. Wyswietl wszystkie zajezdnie\n");
         printf("3. Wyswietl autobusy przypisane do wybranej zajezdni\n");
@@ -108,9 +113,11 @@ void prt(enum PrintType prt_type)
         printf("2. Numer linii\n");
         printf("3. Numer pesel\n");
         printf("4. Imie i nazwisko\n");
+        prt(SHORT_LINE);
+        printf("0. Cofnij\n\n");
         break;
     case TYPE_VALUE_OF_FIELD:
-        printf("Podaj wartosc, po ktorej ma nastapic filtrowanie: ");
+        printf("Podaj kryterium: ");
         break;
     case TYPE_BUS_LINE_NO:
         printf("Podaj numer linii: ");
@@ -120,6 +127,33 @@ void prt(enum PrintType prt_type)
         break;
     case TYPE_BUS_DRIVER_NAME:
         printf("Podaj nazwisko i imie kierowcy: ");
+        break;
+    case BLANK_LINE:
+        printf("\n");
+        break;
+    case DEPOTS_LABEL:
+        printf("Zajezdnie: \n");
+        break;
+    case TYPE_BUS_SIDE_NO_TO_EDIT:
+        printf("Podaj numer boczny autobusu, ktory chcesz edytowac (0 by przerwac): ");
+        break;
+    case WHAT_U_WANT_TO_EDIT:
+        printf("Ktore pole chcesz zedytowac?\n");
+        printf("1. Numer boczny\n");
+        printf("2. Numer linii\n");
+        printf("3. Numer pesel\n");
+        printf("4. Imie i nazwisko\n");
+        prt(SHORT_LINE);
+        printf("0. Cofnij\n\n");
+        break;
+    case CURRENT:
+        printf("Aktualnie:    ");
+        break;
+    case NEW:
+        printf("Nowa wartosc: ");
+        break;
+    case TYPE_DEPOT_NAME_TO_EDIT:
+        printf("Podaj nazwe zajezdni, ktorej chcesz zmienic nazwe (0 by przerwac): ");
         break;
     }
 }

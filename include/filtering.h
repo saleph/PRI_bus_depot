@@ -16,5 +16,7 @@ enum FilterType {
 };
 
 void print_filtered_by(enum FilterType, void*);
+List filter_buses_by_side_no(List*, int);
+List filter_depots_by_name(List*, char*);
 
 #endif /* FILTERING_H_INCLUDED */

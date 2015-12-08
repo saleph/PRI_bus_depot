@@ -5,11 +5,9 @@
  * which contains matching records. Passed list can be
  * also previously filtered List
  */
-static List filter_buses_by_side_no(List*, int);
 static List filter_buses_by_line_no(List*, int);
 static List filter_buses_by_driver_name(List*, char*);
 static List filter_buses_by_driver_pesel(List*, char*);
-static List filter_depots_by_name(List*, char*);
 
 
 void print_filtered_by(enum FilterType filter_type, void* value)
@@ -23,7 +21,7 @@ void print_filtered_by(enum FilterType filter_type, void* value)
     case SIDE_NO:
         a_number = *(int*)value;
         filtered = filter_buses_by_side_no(&buses, a_number);
-        for_each_in(&filtered, print_bus_info);
+        for_each_in(&filtered, print_bus_info_with_refs);
         break;
     case LINE_NO:
         a_number = *(int*)value;
