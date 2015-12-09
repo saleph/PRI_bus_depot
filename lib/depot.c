@@ -53,9 +53,11 @@ void print_depot_info_with_refs(void* the_depot_pointer)
     Depot *the_depot;
     the_depot = (Depot*)the_depot_pointer;
     printf("- %s\n", the_depot->name);
-    printf("   Przypisane autobusy:\n");
-    if (the_depot->members.length > 0)
-        for_each_in(&(the_depot->members), print_depot_members);
+    printf("--- Przypisane autobusy:\n");
+    if (the_depot->members.length > 0) {
+        print_bus_labels();
+        for_each_in(&(the_depot->members), print_bus_info);
+    }
     else
         printf("   == BRAK ==");
     printf("\n");
