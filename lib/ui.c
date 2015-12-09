@@ -30,6 +30,7 @@ static void del_bus_dialog();
 static void del_depot_dialog();
 static void print_all_buses();
 static void print_all_depots();
+static void print_all_buses_with_refs();
 
 
 void start_program()
@@ -199,6 +200,7 @@ void add_bus_or_depot()
 void add_bus_dialog()
 {
     char side_no[256], line_no[256], pesel[256];
+    print_all_buses();
     prt(TYPE_BUS_SIDE_NO);
     scan_to_buf();
     if (!is_number(buffer)) {
@@ -231,6 +233,7 @@ void add_bus_dialog()
 
 void add_depot_dialog()
 {
+    print_all_depots();
     prt(TYPE_DEPOT_NAME);
     scan_to_buf();
     add_depot(buffer);
@@ -492,6 +495,9 @@ void choose_type_of_refs_edit()
     }
     prt(CLS);
     op_type = atoi(buffer);
+    print_bus_labels();
+    print_all_buses_with_refs();
+    print_all_depots();
     switch (op_type)
     {
     case 1:
@@ -508,6 +514,7 @@ void choose_type_of_refs_edit()
         break;
     default:
         prt(INVALID_OPTION);
+        prt(LINE);
         break;
     }
 }
@@ -526,6 +533,7 @@ void assign_dialog()
 
     prt(TYPE_DEPOT_NAME);
     scan_to_buf();
+    prt(CLS);
     assign_to(buffer, side_no);
 }
 
@@ -543,7 +551,7 @@ void del_assign_dialog()
 
     prt(TYPE_DEPOT_NAME);
     scan_to_buf();
-
+    prt(CLS);
     remove_assignment_from(buffer, side_no);
 }
 
@@ -564,6 +572,7 @@ void move_assign_dialog()
     strcpy(first_depot, buffer);
     prt(TO_DEPOT);
     scan_to_buf();
+    prt(CLS);
     move_to(first_depot, side_no, buffer);
 }
 
@@ -592,7 +601,7 @@ void choose_type_of_printing()
     switch (op_type)
     {
     case 1:
-        print_all_buses();
+        print_all_buses_with_refs();
         break;
     case 2:
         print_all_depots();
@@ -675,10 +684,17 @@ void buses_filtering_dialog()
     }
 }
 
-static void print_all_buses()
+void print_all_buses()
 {
     print_bus_labels();
     for_each_in(&buses, print_bus_info);
+    prt(LINE);
+}
+
+void print_all_buses_with_refs()
+{
+    print_bus_labels();
+    for_each_in(&buses, print_bus_info_with_refs);
     prt(LINE);
 }
 

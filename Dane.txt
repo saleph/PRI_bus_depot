@@ -16,14 +16,15 @@ b: 6, 46, Wesna Wak, 11111131111
 b: 7, 11, Wesna Wak, 11112111111
 b: 8, 11, Wesna Wak, 11111111111
 b: 9, 11, Tan Justyna, 11111111111
-b: 14, 11, Fasdf Asdfa, 11111111111
-b: 16, 11, Sdfa Aaas, 11111111111
+b: 18, 11, Czarny Marian, 12345678912
+b: 27, 11, Bak Cezary, 12345678912
 
 # ================== Depots =================
 # d: <depot name>, <side no of bus 1>,..., <side no of bus n>
 
 d: Alabastrowa, 1, 2, 5, 7
-d: Bitumiczna, 1, 8
-d: Chemiczna, 1, 2, 3, 4, 6
-d: Dostawcza, 3, 4
+d: Biotechniczna, 1, 8
+d: Chemiczna, 1, 2, 3, 4, 6, 9
+d: Dostawcza, 3
 d: Elektryczna, 3, 7
+d: Testowa

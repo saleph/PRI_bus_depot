@@ -1,8 +1,6 @@
 #include "../include/depot.h"
 
 
-static void print_depot_members(void*);
-
 Depot *new_depot(char* a_string)
 {
     Depot *the_depot;
@@ -61,11 +59,4 @@ void print_depot_info_with_refs(void* the_depot_pointer)
     else
         printf("   == BRAK ==");
     printf("\n");
-}
-
-void print_depot_members(void* the_bus_pointer)
-{
-    Bus *the_bus;
-    the_bus = (Bus*)the_bus_pointer;
-    printf("   - %04d\n", the_bus->side_no);
 }
