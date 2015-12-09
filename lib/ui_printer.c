@@ -155,5 +155,8 @@ void prt(enum PrintType prt_type)
     case TYPE_DEPOT_NAME_TO_EDIT:
         printf("Podaj nazwe zajezdni, ktorej chcesz zmienic nazwe (0 by przerwac): ");
         break;
+    case TYPE_BUS_SIDE_NO_TO_DEL:
+        printf("Podaj numer boczny autobusu do usuniecia (0 by przerwac): ");
+        break;
     }
 }

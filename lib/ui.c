@@ -404,6 +404,8 @@ void del_bus_or_depot()
             prt(NOT_A_NUMBER);
             continue;
         }
+        else
+            break;
     }
 
     op_type = atoi(buffer);
@@ -421,6 +423,49 @@ void del_bus_or_depot()
         prt(INVALID_OPTION);
         break;
     }
+}
+
+void del_bus_dialog()
+{
+    int side_no;
+    Bus *the_bus;
+    print_all_buses();
+    prt(TYPE_BUS_SIDE_NO_TO_DEL);
+    scan_to_buf();
+    if (is_zero()) {
+        prt(CLS);
+        return;
+    }
+    if (!is_number(buffer)) {
+        prt(CLS);
+        prt(NOT_A_NUMBER);
+        return;
+    }
+    side_no = atoi(buffer);
+    prt(CLS);
+    the_bus = find_object_with_item_in(&buses, &side_no, get_side_no, side_no_cmp);
+    if (!the_bus)
+        return;
+    remove_bus(the_bus);
+    modified = 1;
+}
+
+void del_depot_dialog()
+{
+    Depot *the_depot;
+    print_all_depots();
+    prt(TYPE_DEPOT_NAME_TO_EDIT);
+    scan_to_buf();
+    if (is_zero()) {
+        prt(CLS);
+        return;
+    }
+    prt(CLS);
+    the_depot = find_object_with_item_in(&depots, buffer, get_depot_name, names_cmp);
+    if (!the_depot)
+        return;
+    remove_depot(the_depot);
+    modified = 1;
 }
 
 void add_del_edit_refs_menu()
@@ -633,6 +678,7 @@ static void print_all_buses()
     for_each_in(&buses, print_bus_info);
     prt(LINE);
 }
+
 static void print_all_depots()
 {
     prt(DEPOTS_LABEL);

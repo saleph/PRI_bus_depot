@@ -6,6 +6,14 @@ static void change_some_references();
 static void test_filters();
 static void print_data();
 
+void do_tests()
+{
+    create_data();
+    change_some_references();
+    test_filters();
+    print_data();
+}
+
 void create_data()
 {
     add_bus("1", "11", "w", "11111111111");

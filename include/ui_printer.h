@@ -39,7 +39,8 @@ enum PrintType {
     WHAT_U_WANT_TO_EDIT,
     CURRENT,
     NEW,
-    TYPE_DEPOT_NAME_TO_EDIT
+    TYPE_DEPOT_NAME_TO_EDIT,
+    TYPE_BUS_SIDE_NO_TO_DEL
 };
 
 void prt(enum PrintType);
