@@ -407,6 +407,8 @@ void del_bus_or_depot()
         else
             break;
     }
+    prt(BOLD_LINE);
+    prt(BLANK_LINE);
 
     op_type = atoi(buffer);
     switch (op_type)
