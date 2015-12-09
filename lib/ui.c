@@ -638,6 +638,7 @@ void buses_filtering_dialog()
     scan_to_buf();
     prt(BLANK_LINE);
 
+    print_bus_labels();
     switch (filter_type)
     {
     case 1:

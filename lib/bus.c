@@ -66,7 +66,7 @@ void print_bus_info(void* the_bus_ptr)
 {
     Bus* the_bus;
     the_bus = (Bus*)the_bus_ptr;
-    printf(" - %04d   |  %3d  |   %11s  | %s\n", the_bus->side_no,
+    printf(" - %04d   |  %3d  |   %11s  | %24s |\n", the_bus->side_no,
            the_bus->line_no, the_bus->driver_pesel, the_bus->driver_name);
 }
 
@@ -74,14 +74,12 @@ void print_bus_info_with_refs(void* the_bus_ptr)
 {
     Bus* the_bus;
     the_bus = (Bus*)the_bus_ptr;
-    print_bus_labels();
-    printf(" - %04d   |  %3d  |   %11s  | %s\n", the_bus->side_no,
+    printf(" - %04d   |  %3d  |   %11s  | %24s | W zajezdni: ", the_bus->side_no,
            the_bus->line_no, the_bus->driver_pesel, the_bus->driver_name);
-    printf("   Przypisany do:\n");
     if (the_bus->memberships.length > 0)
         for_each_in(&(the_bus->memberships), print_bus_memberships);
     else
-        printf("   == BRAK ==\n");
+        printf("== BRAK ==");
     printf("\n");
 }
 
@@ -89,12 +87,12 @@ void print_bus_memberships(void* the_depot_pointer)
 {
     Depot *the_depot;
     the_depot = (Depot*)the_depot_pointer;
-    printf("   - %s\n", the_depot->name);
+    printf("%s, ", the_depot->name);
 }
 
 void print_bus_labels()
 {
-    printf("Nr boczny | Linia | PESEL kierowcy | Nazwisko i imie kierowcy\n");
+    printf("Nr boczny | Linia | PESEL kierowcy | Nazwisko i imie kierowcy |\n");
 }
 
 void del_bus(void* the_bus_pointer)

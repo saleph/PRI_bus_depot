@@ -22,8 +22,8 @@ b: 16, 11, Sdfa Aaas, 11111111111
 # ================== Depots =================
 # d: <depot name>, <side no of bus 1>,..., <side no of bus n>
 
-d: Alabastrowa, 1, 2, 5
-d: Bitumiczna, 1, 7, 8
+d: Alabastrowa, 1, 2, 5, 7
+d: Bitumiczna, 1, 8
 d: Chemiczna, 1, 2, 3, 4, 6
 d: Dostawcza, 3, 4
 d: Elektryczna, 3, 7
