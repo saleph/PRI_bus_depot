@@ -495,7 +495,6 @@ void choose_type_of_refs_edit()
     }
     prt(CLS);
     op_type = atoi(buffer);
-    print_bus_labels();
     print_all_buses_with_refs();
     print_all_depots();
     switch (op_type)

@@ -5,26 +5,31 @@
 
 
 # ================== Buses ==================
-# b: <side no>, <line no>, <driver name>, <driver pesel>
+# b: <side no>, <line no>, <driver name>, <driver pesel>,
 
-b: 1, 21, Chyzy Waldemar, 11111111111
-b: 2, 112, Darnina Wojciech, 11111111111
-b: 3, 13, Visco Cezary, 21111551111
-b: 4, 18, Bark Juliusz, 11111111111
-b: 5, 34, Wesna Wak, 11115411111
-b: 6, 46, Wesna Wak, 11111131111
-b: 7, 11, Wesna Wak, 11112111111
-b: 8, 11, Wesna Wak, 11111111111
-b: 9, 11, Tan Justyna, 11111111111
-b: 18, 11, Czarny Marian, 12345678912
-b: 27, 11, Bak Cezary, 12345678912
+b: 1, 21, Chyzy Waldemar, 11111111111,
+b: 2, 112, Darnina Wojciech, 11111111111,
+b: 3, 13, Visco Cezary, 21111551111,
+b: 4, 18, Bark Juliusz, 11111111111,
+b: 5, 34, Wesna Wak, 11115411111,
+b: 6, 46, Wesna Wak, 11111131111,
+b: 7, 11, Wesna Wak, 11112111111,
+b: 8, 11, Wesna Wak, 11111111111,
+b: 9, 11, Tan Justyna, 11111111111,
+b: 10, 13, Fasad Sasasa, 12345678912,
+b: 923, 11, Kak Zecary, 12345678999,
 
 # ================== Depots =================
-# d: <depot name>, <side no of bus 1>,..., <side no of bus n>
+# d: <depot name>, <side no of bus 1>,..., <side no of bus n>,
 
-d: Alabastrowa, 1, 2, 5, 7
-d: Biotechniczna, 1, 8
-d: Chemiczna, 1, 2, 3, 4, 6, 9
-d: Dostawcza, 3
-d: Elektryczna, 3, 7
-d: Testowa
+d: Bezprzecinka,
+d: Biotechniczna, 8,
+d: Boba,
+d: Chemiczna, 1, 2, 3, 4, 6, 9,
+d: Czarna, 923,
+d: Dostawcza, 3,
+d: Elektryczna, 3, 7,
+d: Kobolowa,
+d: Nowa, 10,
+d: Testowa, 5,
+d: Zabojcza,

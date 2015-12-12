@@ -34,7 +34,7 @@ int dump_database_to(const char* filename)
 void buses_now_comment()
 {
     fprintf(file_hook, "# ================== Buses ==================\n");
-    fprintf(file_hook, "# b: <side no>, <line no>, <driver name>, <driver pesel>\n");
+    fprintf(file_hook, "# b: <side no>, <line no>, <driver name>, <driver pesel>,\n");
     fprintf(file_hook, "\n");
 }
 
@@ -42,7 +42,7 @@ void dump_bus(void* the_bus_ptr)
 {
     Bus *the_bus;
     the_bus = (Bus*)the_bus_ptr;
-    fprintf(file_hook, "b: %d, %d, %s, %s\n", the_bus->side_no,
+    fprintf(file_hook, "b: %d, %d, %s, %s,\n", the_bus->side_no,
             the_bus->line_no, the_bus->driver_name, the_bus->driver_pesel);
 }
 
@@ -50,7 +50,7 @@ void depots_now_comment()
 {
     fprintf(file_hook, "\n");
     fprintf(file_hook, "# ================== Depots =================\n");
-    fprintf(file_hook, "# d: <depot name>, <side no of bus 1>,..., <side no of bus n>\n");
+    fprintf(file_hook, "# d: <depot name>, <side no of bus 1>,..., <side no of bus n>,\n");
     fprintf(file_hook, "\n");
 }
 
@@ -58,7 +58,7 @@ void dump_depot(void* the_depot_ptr)
 {
     Depot *the_depot;
     the_depot = (Depot*)the_depot_ptr;
-    fprintf(file_hook, "d: %s", the_depot->name);
+    fprintf(file_hook, "d: %s,", the_depot->name);
     for_each_in(&(the_depot->members), dump_bus_as_ref);
     fprintf(file_hook, "\n");
 }
@@ -67,7 +67,7 @@ void dump_bus_as_ref(void* the_bus_ptr)
 {
     Bus *the_bus;
     the_bus = (Bus*)the_bus_ptr;
-    fprintf(file_hook, ", %d", the_bus->side_no);
+    fprintf(file_hook, " %d,", the_bus->side_no);
 }
 
 void start_comments()
