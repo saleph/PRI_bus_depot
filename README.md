@@ -4,7 +4,7 @@ Aplikacja obsługująca zajezdnie autobusowe - przechowuje informacje na temat a
 ## Warstwa algorytmiczna
 ### Wykorzystane struktury
 #### Lista
-Cały program bazuje na uniwersalnej, dwukierunkowej liście. Każdy jej węzeł przechowuje dowolny wskaźnik na miejsce w pamięci.
+Cały program bazuje na uniwersalnej, dwukierunkowej liście. Każdy jej węzeł przechowuje dowolny wskaźnik na miejsce w pamięci. Elementy w liście są unikalne i posortowane (względem podawanych przy dodawaniu elementów funkcji porównujących).
 
 ```c
 typedef struct List {
@@ -44,3 +44,7 @@ typedef struct Depot {
     List members;
 } Depot;
 ```
+
+### Sposób realizacji wymagań dot. operacji na danych
+#### Dodawanie, modyfikacja i usuwanie
+Wszystkie dane są przechowywane w najmniejszej możliwej ilości egzemplarzy. Dodawanie nowych rekordów opiera się na pojedyńczym zaalokowaniu miejsca dla dodawanej struktury, a następnie zaalokowaniu miejsca na sam węzeł listy. Dany rekord zostaje w pamięci, a wskaźnik do niego jest cały czas dostępny. Przy modyfikacji pól, które są kluczami (numer boczny, nazwa zajezdni) następuje automatyczne przesortowanie listy tak, aby zachować w niej porządek rosnący. Podczas usuwania rekordu zostają także usunięte wszelkie do niego dowiązania, a sama pamięć od razu zwalniana.
