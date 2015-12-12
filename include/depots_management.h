@@ -14,6 +14,7 @@ int add_depot(char*);
 
 /* removed passed depot from the list */
 int remove_depot(Depot*);
+void reappend_depot_assignments(Depot*);
 
 int edit_depot_name(Depot*, char*);
 

@@ -45,7 +45,29 @@ void delete_bus_references(Bus* the_bus)
              the_depot = (Depot*)(list_node->object);
              /* here list_node may be freed! so use of tmp_node is necessary */
              /* I love you VALGRIND */
-             remove_assignment_from(the_depot->name, the_bus->side_no);
+             remove_assignment_structs_from(the_depot, the_bus);
+             list_node = tmp_node;
+         }
+}
+
+void reappend_bus_memberships(Bus* the_bus)
+{
+    /* fix order of bus after side_no edit
+     * in all depots, where deleted bus is assigned
+     */
+    ListNode *list_node, *tmp_node;
+    Depot *the_depot;
+
+    for (list_node=the_bus->memberships.head;
+         list_node;
+         )
+         {
+             tmp_node = list_node->next;
+             the_depot = (Depot*)(list_node->object);
+             /* here list_node may be freed! so use of tmp_node is necessary */
+             /* I love you VALGRIND */
+             remove_assignment_structs_from(the_depot, the_bus);
+             assign_structs_to(the_depot, the_bus);
              list_node = tmp_node;
          }
 }

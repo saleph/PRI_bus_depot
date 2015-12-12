@@ -328,6 +328,7 @@ void edit_bus_dialog()
             if (edit_bus_side_no(the_bus, buffer)) {
                 remove_from(&buses, the_bus, del_node_only);
                 append_to(&buses, the_bus, buses_side_no_cmp);
+                reappend_bus_memberships(the_bus);
             }
             break;
         case 2:
@@ -387,6 +388,7 @@ void edit_depot_dialog()
     if (edit_depot_name(the_depot, buffer)) {
         remove_from(&depots, the_depot, del_node_only);
         append_to(&depots, the_depot, depots_names_cmp);
+        reappend_depot_assignments(the_depot);
     }
     modified = 1;
 }
