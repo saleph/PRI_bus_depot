@@ -1,5 +1,5 @@
 # Zadanie 3.07
-Aplikacja obsługująca zajezdnie autobusowe - przechowuje informacje na temat autobusów, zajezdni oraz relacji pomiędzy nimi.
+Aplikacja obsługująca zajezdnie autobusowe - przechowuje informacje na temat autobusów, zajezdni oraz relacji pomiędzy nimi. Umożliwia także manipulację tymi danymi.
 
 ## Warstwa algorytmiczna
 ### Wykorzystane struktury
@@ -60,3 +60,15 @@ Dane mogą zostać zapisane i odczytane z/do pliku `Dane.txt`. Funkcja przeprowa
 
 ### Testy
 Kod projektu zawiera pliki `tests`, w których zawarte zostały bardzo prymitywne testy wszystkich funkcjonalności używanych w programie. Ich wykonanie nie wymaga ingerencji użytkownika, więc w naturalny sposób były bardzo pomocne przy testowaniu programu narzędziem do kontroli wycieków pamięci ([VALGRIND](http://valgrind.org/)). Program nie posiada jakichkolwiek miejsc, w których mogłoby dojść do wycieku pamięci albo nieautoryzowanego odwołania się do komórek spoza sterty.
+
+## Dokumentacja funkcji
+### **list.h**
+`int append_to(List* a_list, void* an_object, int (*cmp)(const void*, const void*))`: dodaje obiekt (np. autobus) do listy w odpowiednim miejscu (porównywanie następuje przy pomocy funkcji podanej jako 3 argument). Domyślny porządek jest rosnący, choć może zostać odwrócony przez manipulację na funkcji porównującej.
+
+`int remove_from(List* a_list, void* an_element, void (*rm)(void*))`: usuwa obiekt (np. autobus) z listy. Wymaga także dekonstruktora danej struktury (np. funkcji usuwającej dowiązania do zajezdni oraz samą listę z zależnościami).
+
+`ListNode *find_node_in(List* a_list, void* an_object)`: wyszukuje obiekt (np. zajeznię jako strukturę) w danej liście, a nastepnie zwraca wskaźnik węzła, w którym się on znajduje. Jeśli elementu nie znaleziono - zwraca NULL.
+
+`void *find_object_with_item_in(List* the_list, void* item, void *(*get)(ListNode*), int (*cmp)(void*, void*))`: funkcja zwracająca wskaźnik na strukturę, która zawiera podany element (*item*) we wskazanej liście. Wymaga funkcji wyłuskującej (np. wyłuskanie *side_no* z *ListNode*) oraz funkcji porównującej (np. `side_no_cmp(const void*, const void*)`).
+
+`void delete_list(List* the_list, void (*rm_content)(void*))`: usuwa wszystkie węzły listy wraz z elementami wewnątrz każdego węzła (poprzez funkcję przekazywaną przez wskaźnik).
