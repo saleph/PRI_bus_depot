@@ -79,6 +79,28 @@ Kod projektu zawiera pliki `tests`, w których zawarte zostały bardzo prymitywn
 
 `void for_each_in(List* the_list, void (*do_sth)(void*))`: prymitywna implementacja operatora `for_each`, która wykonuje jakąś operację na elemencie we wszystkich węzłach (używana np. do funkcji wyświetlających zawartość listy albo do usuwania nieistniejących już dowiązań).
 
+### **comparing.h**
+`int buses_side_no_cmp(const void *first, const void *second)`: porównuje numery boczne dwóch autobusów.
+
+`int buses_line_no_cmp(const void *first, const void *second)`: porównuje numery linii dwóch autobusów.
+
+`int buses_drivers_names_cmp(const void* first, const void* second)`: porównuje nazwiska kierowców dwóch autobusów.
+
+`int buses_drivers_pesels_cmp(const void* first, const void* second)`: porównuje pesele kierowców dwóch autobusów.
+
+`int depots_names_cmp(const void* first, const void* second)`: porównuje nazwy dwóch zajezdni.
+
+### **extracting.h**
+`void *get_side_no(ListNode* the_node)`: wyłuskuje numer boczny z węzła listy.
+
+`void *get_line_no(ListNode* the_node)`: wyłuskuje numer linii z węzła listy.
+
+`void *get_driver_name(ListNode* the_node)`: wyłuskuje nazwisko kierowcy z węzła listy.
+
+`void *get_driver_pesel(ListNode* the_node)`: wyłuskuje pesel kierowcy z węzła listy.
+
+`void *get_depot_name(ListNode* the_node)`: wyłuskuje nazwę zajezdni z węzła listy.
+
 ### **bus.h**
 `Bus *new_bus(char* side_no, char* line_no, char* name, char* driver_pesel)`: konstruktor nowej instancji struktury. Przy ustawianiu konkretnych wartości następuje od razu ich sprawdzenie, zaś niespełnienie jakiegokolwiek kryterium skutkuje cofnięciem alokacji pamięci.
 
@@ -109,3 +131,27 @@ Kod projektu zawiera pliki `tests`, w których zawarte zostały bardzo prymitywn
 
 `void print_depot_info_with_refs(void* the_depot_pointer)`: wyświetla informacje o pojedyńczej zajezdni razem z przypisanymi autobusami.
 
+### **buses_management.h**
+`int add_bus(char* side_no, char* line_no, char* name, char* pesel)`: dodaje autobus o podanych parametrach do listy.
+
+`int remove_bus(Bus* the_bus)`: usuwa wszystkie dowiązania autobusu w zajezdniach, a następnie sam autobus.
+
+`void reappend_bus_memberships(Bus* the_bus)`: usuwa i na nowo tworzy przypisania autobusu we wszystkich zajezdniach. Ma to na celu naprawienie kolejności rekordów po edycji wartości klucza (po edycji numeru bocznego).
+
+### **depots_management.h**
+`int add_depot(char* depot_name)`: dodaje zajezdnię o podanej nazwie do listy.
+
+`int remove_depot(Depot* the_depot)`: usuwa zajezdnię wraz z miejscami, gdzie występowała.
+
+`void reappend_depot_assignments(Depot* the_depot)`: usuwa i tworzy na nowo dowiązania zajezdni w przypisanych autobusach. Naprawia ich kolejność (po edycji nazwy zajezdni).
+
+### **membership_management.h**
+`void assign_to(char* depot_name, int side_no)`: przypisuje zajezdnię o podanej nazwie do autobusu o podanym numerze bocznym.
+
+`void assign_structs_to(Depot* the_depot, Bus* the_bus)`: analogicznie jak przy powyższej, tylko że wymaga już wskaźników na struktury.
+
+`void remove_assignment_from(char* depot_name, int side_no)`: usuwa przypisanie autobusu o podanym numerze bocznym z zajezdni o podanej nazwie.
+
+`void remove_assignment_structs_from(Depot* the_depot, Bus* the_bus)`: analogicznie jak powyżej, ale wymaga wskaźników na struktury.
+
+`void move_to(char *from_depot_name, int side_no, char *to_depot_name)`: przenosi przypisanie autobusu o podanej nazwie z jednej zajezdni do drugiej.
