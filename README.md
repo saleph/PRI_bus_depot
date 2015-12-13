@@ -169,7 +169,7 @@ Kod projektu zawiera pliki `tests`, w których zawarte zostały bardzo prymitywn
 `void clean_up_mem()`: czyści całą bazę danych usuwając wszystkie zaalokowane wcześniej struktury. Nie pozostawia jakichkolwiek danych w pamięci.
 
 ### **tests.h**
-`void do_tests()`: wykonuje prymitywne testy wszystkich funkcjonalności programu, wyświetlając stan bazy danych po każdej jej edycji. Wystarczy zawrzeć ją w pliku *main.c*.
+`void do_tests()`: wykonuje prymitywne testy wszystkich funkcjonalności programu, wyświetlając stan bazy danych po każdej jej edycji. Aby uruchomić program w trybie debugowania wystarczy zmienić flagę `DEBUG_MODE` w pliku `main.c` na 1.
 
 ### **messages.h**
 `void msg(enum Message message)`: switch operujący na enumie; zawiera wszystkie komunikaty błędów, które mogą wystąpić w programie.
