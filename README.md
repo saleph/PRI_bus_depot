@@ -72,3 +72,9 @@ Kod projektu zawiera pliki `tests`, w których zawarte zostały bardzo prymitywn
 `void *find_object_with_item_in(List* the_list, void* item, void *(*get)(ListNode*), int (*cmp)(void*, void*))`: funkcja zwracająca wskaźnik na strukturę, która zawiera podany element (*item*) we wskazanej liście. Wymaga funkcji wyłuskującej (np. wyłuskanie *side_no* z *ListNode*) oraz funkcji porównującej (np. `side_no_cmp(const void*, const void*)`).
 
 `void delete_list(List* the_list, void (*rm_content)(void*))`: usuwa wszystkie węzły listy wraz z elementami wewnątrz każdego węzła (poprzez funkcję przekazywaną przez wskaźnik).
+
+`void del_node_only(void* the_node_ptr)`: funkcja 'pusta'; podana jako argument np. `remove_from()` nie spowoduje usunięcia obietków wewnątrz węzła (używana np. przy usuwaniu przypisań autobusów do zajezdni).
+
+`List find_occurrences(List* the_list, void* item, void* (*get)(ListNode*), int (*cmp)(const void*, const void*))`: funkcja przeszukująca podaną listę względem zawierania (określanego przy pomocy funkcji `*cmp`) podanego kryterium (`void *item`). Jeśli jakiś element listy spełnia to kryterium, to zostaje dodany do statycznej listy, która potem zostanie zwrócona. Wymaga dodatkowo funkcji wyłuskującej z `ListNode` analogicznego elementu (np. przy filtrowaniu po numerze linii - wymagana jest funkcja `get_line_no(ListNode*)`.
+
+`void for_each_in(List* the_list, void (*do_sth)(void*))`: prymitywna implementacja operatora `for_each`, która wykonuje jakąś operację na elemencie we wszystkich węzłach (używana np. do funkcji wyświetlających zawartość listy albo do usuwania nieistniejących już dowiązań).
