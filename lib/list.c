@@ -224,11 +224,11 @@ List find_occurrences(List* the_list, void* item,
     return occurrences;
 }
 
-void for_each_in(List* the_list, void (*print)(void*))
+void for_each_in(List* the_list, void (*do_sth)(void*))
 {
     ListNode *list_node;
     for (list_node=the_list->head;
          list_node;
          list_node=list_node->next)
-             (*print)(list_node->object);
+             (*do_sth)(list_node->object);
 }
