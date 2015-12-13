@@ -1,6 +1,5 @@
 #include "../include/buses_management.h"
 
-
 List buses;
 static void delete_bus_references(Bus*);
 
