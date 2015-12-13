@@ -155,3 +155,27 @@ Kod projektu zawiera pliki `tests`, w których zawarte zostały bardzo prymitywn
 `void remove_assignment_structs_from(Depot* the_depot, Bus* the_bus)`: analogicznie jak powyżej, ale wymaga wskaźników na struktury.
 
 `void move_to(char *from_depot_name, int side_no, char *to_depot_name)`: przenosi przypisanie autobusu o podanej nazwie z jednej zajezdni do drugiej.
+
+### **filtering.h**
+`void print_filtered_by(enum FilterType filter_type, void* value)`: filtruje dane po konkretnym polu (podane przez enum) wykorzystując podane kryterium *value* i wypisuje je na wyjściu.
+
+### **dumper.h**
+`int dump_database_to(const char* filename)`: zapisuje zrzut bazy danych do pliku o nazwie podanej w parametrze oraz tworzy backup poprzednich danych (z poprzedniego zapisu).
+
+### **data_loader.h**
+`void load_database_from(const char* filename)`: wczytuje z pliku o podanej nazwie dane i tworzy z nich bazę danych, do której dostęp będzie miał program.
+
+### **cleanup.h**
+`void clean_up_mem()`: czyści całą bazę danych usuwając wszystkie zaalokowane wcześniej struktury. Nie pozostawia jakichkolwiek danych w pamięci.
+
+### **tests.h**
+`void do_tests()`: wykonuje prymitywne testy wszystkich funkcjonalności programu, wyświetlając stan bazy danych po każdej jej edycji. Wystarczy zawrzeć ją w pliku *main.c*.
+
+### **messages.h**
+`void msg(enum Message message)`: switch operujący na enumie; zawiera wszystkie komunikaty błędów, które mogą wystąpić w programie.
+
+### **ui_printer.h**
+`void prt(enum PrintType prt_type)`: jeden wielki switch operujący na enumie. Zawiera wszystkie komunikaty używane w interfejsie użytkownika.
+
+### **ui.h**
+`void start_program()`: procedura odpowiedzialna za obsługę całego programu. Opiera się na jednej pętli zdarzeń, które mogą wywoływać kolejne (pozostałe podmenu, zapis danych etc.). Dba także, aby po jakiejkolwiek edycji danych zapytać użytkownika przed wyjściem, czy chciałby zapisać dane do pliku.
