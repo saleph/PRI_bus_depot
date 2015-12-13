@@ -78,3 +78,34 @@ Kod projektu zawiera pliki `tests`, w których zawarte zostały bardzo prymitywn
 `List find_occurrences(List* the_list, void* item, void* (*get)(ListNode*), int (*cmp)(const void*, const void*))`: funkcja przeszukująca podaną listę względem zawierania (określanego przy pomocy funkcji `*cmp`) podanego kryterium (`void *item`). Jeśli jakiś element listy spełnia to kryterium, to zostaje dodany do statycznej listy, która potem zostanie zwrócona. Wymaga dodatkowo funkcji wyłuskującej z `ListNode` analogicznego elementu (np. przy filtrowaniu po numerze linii - wymagana jest funkcja `get_line_no(ListNode*)`.
 
 `void for_each_in(List* the_list, void (*do_sth)(void*))`: prymitywna implementacja operatora `for_each`, która wykonuje jakąś operację na elemencie we wszystkich węzłach (używana np. do funkcji wyświetlających zawartość listy albo do usuwania nieistniejących już dowiązań).
+
+### **bus.h**
+`Bus *new_bus(char* side_no, char* line_no, char* name, char* driver_pesel)`: konstruktor nowej instancji struktury. Przy ustawianiu konkretnych wartości następuje od razu ich sprawdzenie, zaś niespełnienie jakiegokolwiek kryterium skutkuje cofnięciem alokacji pamięci.
+
+`int set_side_no(Bus* a_bus, char* side_no)`: ustawia numer boczny po uprzedniej walidacji.
+
+`int set_line_no(Bus* a_bus, char* line_no)`: ustawia numer linii po uprzedniej walidacji.
+
+`int set_driver_name(Bus* a_bus, char* name)`: ustawia nazwisko i imię kierowcy po uprzedniej walidacji.
+
+`int set_driver_pesel(Bus* a_bus, char* driver_pesel)`: ustawia pesel kierowcy po uprzedniej walidacji.
+
+`void print_bus_info(void* the_bus_ptr)`: wyświetla informacje o pojedyńczym autobusie w formie skróconej (bez przypisań).
+
+`void print_bus_info_with_refs(void* the_bus_ptr)`: wyświetla informacje o pojedyńczym autobusie razem z przypisaniami do zajezdni.
+
+`void print_bus_labels()`: wyświetla linię nagłówkową dla listy autobusów.
+
+`void del_bus(void* the_bus_pointer)`: dekonstruktor pojedyńczego autobusu - usuwa listę dowiązań oraz sam autobus (wraz ze zwolnieniem pamięci).
+
+### **depot.h**
+`Depot *new_depot(char* a_string)`: alokuje pamięć dla nowej zajezdni, ustawia jej nazwę i zwraca do niej wskaźnik.
+
+`void del_depot(void* the_depot_pointer)`: dekonstruuje zajezdnię - usuwa listę dowiązań i samą zajezdnię.
+
+`int set_depot_name(Depot* a_depot, char* name)`: ustawia nazwę zajezdni uprzednio ją walidując.
+
+`void print_depot_info(void* the_depot_pointer)`: wyświetla informacje o pojedyńczej zajezdni w skróconej formie (bez dowiązań).
+
+`void print_depot_info_with_refs(void* the_depot_pointer)`: wyświetla informacje o pojedyńczej zajezdni razem z przypisanymi autobusami.
+
