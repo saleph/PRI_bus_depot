@@ -26,7 +26,7 @@ int append_to(List* a_list, void* an_object, int (*cmp)(const void*, const void*
         return 1;
     }
 
-    /* add the temp_node at the end of a_list */
+    /* add the temp_node at correct place in list (order by cmp func) */
     temp_node = find_place_for_new_node(temp_node, a_list, an_object, cmp);
     if (!temp_node)
         return 0;
