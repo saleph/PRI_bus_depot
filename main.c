@@ -1,4 +1,5 @@
 #include "include/ui.h"
+#include "include/tests.h"
 #define DEBUG_MODE 0
 
 int main()
